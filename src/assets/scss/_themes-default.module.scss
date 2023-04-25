@@ -1,0 +1,179 @@
+// background
+$background: #f1f1f1;
+$paper: #ffffff;
+
+// text
+$textPrimary: rgba(53, 78, 92, 1);
+$textSecondary: rgba(53, 78, 92, 0.7);
+$textDisabled: rgba(53, 78, 92, 0.5);
+$textHint: rgba(53, 78, 92, 0.5);
+$textLight: rgba(53, 78, 92, 0.3);
+
+// primary
+$primaryLight: rgb(185, 221, 247);
+$primaryMain: #109cf1;
+$primaryDark: #0b6da8;
+$primaryContrastText: #fff;
+
+// secondary
+$secondaryLight: #f68e80;
+$secondaryMain: #f47261;
+$secondaryDark: #aa4f43;
+$secondaryContrastText: #fff;
+
+// success Colors
+$successLight: #339c5f;
+$successMain: #018438;
+$successDark: #005c27;
+$successContrastText: #fff;
+
+// error
+$errorLight: #c34f3f;
+$errorMain: #b5230f;
+$errorDark: #7e180a;
+$errorContrastText: #fff;
+
+// warning
+$warningLight: #f4c433;
+$warningMain: #f2b600;
+$warningDark: #a97f00;
+$warningContrastText: #fff;
+
+// grey
+$grey50: #fafafa;
+$grey100: #f5f5f5;
+$grey200: #eeeeee;
+$grey300: #e0e0e0;
+$grey500: #9e9e9e;
+$grey600: #757575;
+$grey700: #616161;
+$grey900: #212121;
+
+// divider
+$divider: #cddff1;
+
+// shadow
+$shadow: -3px -3px 6px rgba(255, 255, 255, 0.7),
+3px 3px 6px rgba(12, 0, 58, 0.1);
+$insetShadow: inset -3px -3px 6px rgba(255, 255, 255, 0.5),
+inset 3px 3px 6px rgba(12, 0, 58, 0.1);
+
+// ==============================|| DARK THEME VARIANTS ||============================== //
+
+// background
+$darkBackground: #2b2a30;
+$darkPaper: #2b2a30;
+
+// text
+$darkTextPrimary: #e9e8ec;
+$darkTextSecondary: #e9e8ec;
+$darkTextDisabled: #e9e8ec;
+$darkTextHint: #e9e8ec;
+
+// primary
+$darkPrimaryLight: #264c62;
+$darkPrimaryMain: #109cf1;
+$darkPrimaryDark: #0b6da8;
+$darkPrimaryContrastText: #fff;
+
+// secondary
+$darkSecondaryLight: #f68e80;
+$darkSecondaryMain: #f47261;
+$darkSecondaryDark: #aa4f43;
+$darkSecondaryContrastText: #fff;
+
+// divider
+$darkDivider: #616161;
+
+// shadow
+$darkShadow: -3px -3px 6px rgb(58 58 58 / 30%),
+3px 3px 6px rgb(0 0 0 / 30%);
+$darkInsetShadow: inset -3px -3px 6px rgb(58 58 58 / 10%),
+inset 3px 3px 6px rgb(0 0 0 / 30%);
+
+// ==============================|| JAVASCRIPT ||============================== //
+
+:export {
+    // paper & background
+    paper: $paper;
+    backgroundDefault: $background;
+
+    // text variants
+    textPrimary: $textPrimary;
+    textSecondary: $textSecondary;
+    textDisabled: $textDisabled;
+    textHint: $textHint;
+
+    // primary
+    primaryLight: $primaryLight;
+    primaryMain: $primaryMain;
+    primaryDark: $primaryDark;
+    primaryContrastText: $primaryContrastText;
+
+    // secondary
+    secondaryLight: $secondaryLight;
+    secondaryMain: $secondaryMain;
+    secondaryDark: $secondaryDark;
+    secondaryContrastText: $secondaryContrastText;
+
+    // success
+    successLight: $successLight;
+    successMain: $successMain;
+    successDark: $successDark;
+
+    // error
+    errorLight: $errorLight;
+    errorMain: $errorMain;
+    errorDark: $errorDark;
+
+    // warning
+    warningLight: $warningLight;
+    warningMain: $warningMain;
+    warningDark: $warningDark;
+
+    // grey
+    grey50: $grey50;
+    grey100: $grey100;
+    grey200: $grey200;
+    grey300: $grey300;
+    grey500: $grey500;
+    grey600: $grey600;
+    grey700: $grey700;
+    grey900: $grey900;
+
+    // divider
+    divider: $divider;
+
+    // shadow
+    shadowDefault: $shadow;
+    insetShadow: $insetShadow;
+
+    // ==============================|| DARK THEME VARIANTS ||============================== //
+
+    // paper & background
+    darkPaper: $darkPaper;
+    darkBackground: $darkBackground;
+
+    // text variants
+    darkTextPrimary: $darkTextPrimary;
+    darkTextSecondary: $darkTextSecondary;
+    darkTextDisabled: $darkTextDisabled;
+    darkTextHint: $darkTextHint;
+
+    // primary dark
+    darkPrimaryLight: $darkPrimaryLight;
+    darkPrimaryMain: $darkPrimaryMain;
+    darkPrimaryDark: $darkPrimaryDark;
+
+    // secondary dark
+    darkSecondaryLight: $darkSecondaryLight;
+    darkSecondaryMain: $darkSecondaryMain;
+    darkSecondaryDark: $darkSecondaryDark;
+
+    // divider
+    darkDivider: $darkDivider;
+
+    // shadow
+    darkShadow: $darkShadow;
+    darkInsetShadow: $darkInsetShadow;
+}

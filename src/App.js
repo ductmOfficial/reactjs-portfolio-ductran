@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// third-party
+import { SWRConfig } from 'swr';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// project imports
+import { ManagedUIContext } from 'context/uiContext';
+import Routes from 'routes';
+import fetcher from 'utils/fetcher';
+
+const App = () => (
+  <SWRConfig
+    value={{
+      refreshInterval: 0,
+      revalidateOnFocus: false,
+      shouldRetryOnError: false,
+      fetcher,
+    }}
+  >
+    <ManagedUIContext>
+      <Routes />
+    </ManagedUIContext>
+  </SWRConfig>
+);
 
 export default App;

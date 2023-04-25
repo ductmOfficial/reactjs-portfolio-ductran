@@ -1,13 +1,36 @@
+/* eslint-disable import/no-unresolved */
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
+// third-party
+import { HelmetProvider } from 'react-helmet-async';
+import { BrowserRouter } from 'react-router-dom';
+
+// project imports
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// style + assets
+import 'assets/scss/style.scss';
+
+// SwiperCore.use([Virtual, Navigation, Pagination]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
   </React.StrictMode>
 );
 

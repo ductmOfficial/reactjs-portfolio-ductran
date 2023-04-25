@@ -2,25 +2,22 @@
   "name": "reactjs-tmdb",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src",
+    "prety": "prettier --check .",
+    "prety-fix": "prettier --write . '!**/*.{js}'",
+    "prepare": "husky install"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
     ]
   },
   "browserslist": {
@@ -34,5 +31,52 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/lab": "^5.0.0-alpha.126",
+    "@mui/material": "^5.12.0",
+    "@mui/utils": "^5.12.0",
+    "@tabler/icons": "1.53.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "axios": "^1.3.5",
+    "dayjs": "^1.11.7",
+    "lodash": "^4.17.21",
+    "notistack": "^3.0.1",
+    "prop-types": "^15.8.1",
+    "query-string": "^8.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^1.3.0",
+    "react-perfect-scrollbar": "^1.5.8",
+    "react-router": "^6.10.0",
+    "react-router-dom": "^6.10.0",
+    "react-scripts": "5.0.1",
+    "swiper": "^9.0.0",
+    "swr": "^2.1.3",
+    "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/eslint-parser": "^7.15.8",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "6.0.0",
+    "eslint-import-resolver-typescript": "2.4.0",
+    "eslint-plugin-flowtype": "^5.7.2",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "4.0.8",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.2.1",
+    "sass": "^1.42.1"
   }
 }

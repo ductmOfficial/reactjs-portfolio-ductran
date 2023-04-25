@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Reactjs TMDB",
+  "name": "Reactjs TMDB",
   "icons": [
     {
       "src": "favicon.ico",
