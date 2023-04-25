@@ -29,7 +29,7 @@ const MediaFrame = ({ title, subtitle, items }) => (
         slidesPerView="auto"
         spaceBetween={{ xs: 5, sm: 10 }}
         navigation={{ xs: false, lg: true }}
-        slideWidth={{ xs: 105, sm: 130, md: 180, lg: 220, xl: 260 }}
+        slideWidth={{ xs: 105, sm: 130, md: 180, lg: 280, xl: 320 }}
         items={items}
       />
     </Box>
@@ -37,8 +37,6 @@ const MediaFrame = ({ title, subtitle, items }) => (
 );
 
 export default MediaFrame;
-
-MediaFrame.defaultProps = {};
 
 MediaFrame.propTypes = {
   title: PropTypes.string,

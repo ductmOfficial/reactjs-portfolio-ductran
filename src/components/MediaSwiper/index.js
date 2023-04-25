@@ -9,9 +9,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // project imports
 import useMediaQueries from 'hooks/useMediaQueries';
+import MediaCard from './MediaCard';
 import helpers from './helpers';
 
-const MediaSwiper = ({ slideWidth, ...props }) => {
+const MediaSwiper = ({ slideWidth, items = [], ...props }) => {
   const mediaQueries = useMediaQueries();
 
   const transformValue = (value) => helpers.transformValue(value, mediaQueries);
@@ -19,9 +20,9 @@ const MediaSwiper = ({ slideWidth, ...props }) => {
 
   return (
     <Swiper freeMode virtual={false} spaceBetween={20} {...customProps} modules={[FreeMode, Navigation, Virtual]}>
-      {Array.from({ length: 22 }).map((_, slideContent) => (
-        <SwiperSlide key={slideContent} virtualIndex={slideContent} style={{ width: transformValue(slideWidth) }}>
-          <Box sx={{ p: 2, minHeight: 130, bgcolor: 'background.default' }}>Slide {slideContent}</Box>
+      {items.map((item) => (
+        <SwiperSlide key={item.id} virtualIndex={item.id} style={{ width: transformValue(slideWidth) }}>
+          <MediaCard width={transformValue(slideWidth)} {...item} />
         </SwiperSlide>
       ))}
     </Swiper>
@@ -31,6 +32,7 @@ const MediaSwiper = ({ slideWidth, ...props }) => {
 export default MediaSwiper;
 
 MediaSwiper.propTypes = {
+  items: PropTypes.array,
   slideWidth: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

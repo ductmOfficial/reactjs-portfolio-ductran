@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
 
-// third-party
-import _ from 'lodash';
-
 // material-ui
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
@@ -10,6 +7,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+
+// third-party
+import _ from 'lodash';
 
 const MovieCard = ({ title, overview, ...item }) => {
   const backdrop = item.backdrop_path
