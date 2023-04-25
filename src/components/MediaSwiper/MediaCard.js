@@ -14,7 +14,7 @@ import { IconPlayerPlay } from '@tabler/icons';
 
 const MediaCard = ({ width, ...props }) => {
   const backdrop = _.get(props, 'backdrop_path', '')
-    ? `https://image.tmdb.org/t/p/w500${props.backdrop_path}`
+    ? `https://image.tmdb.org/t/p/w500${_.get(props, 'backdrop_path', '')}`
     : 'https://cdn11.bigcommerce.com/s-1812kprzl2/images/stencil/original/products/448/5071/no-image__13489.1665668163.jpg?c=2';
 
   return (

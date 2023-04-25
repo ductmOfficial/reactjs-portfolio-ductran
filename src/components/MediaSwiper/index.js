@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 // material-ui
-import Box from '@mui/material/Box';
 
 // third-party
 import { FreeMode, Navigation, Virtual } from 'swiper';
