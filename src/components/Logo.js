@@ -12,6 +12,7 @@ const Logo = () => (
       variant="h1"
       noWrap
       sx={{
+        display: { xs: 'none', sm: 'inline-block' },
         fontFamily: 'monospace',
         fontWeight: 900,
         letterSpacing: '.3rem',
@@ -20,6 +21,20 @@ const Logo = () => (
       }}
     >
       D.MOVIEs
+    </Typography>
+    <Typography
+      variant="h1"
+      noWrap
+      sx={{
+        display: { xs: 'inline-block', sm: 'none' },
+        fontFamily: 'monospace',
+        fontWeight: 900,
+        letterSpacing: '.3rem',
+        color: 'inherit',
+        textDecoration: 'none',
+      }}
+    >
+      D.
     </Typography>
   </Box>
 );
