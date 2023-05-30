@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 
 // material-ui
 import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 // third-party
-import { IconCalendar, IconCurrentLocation, IconFence, IconHome, IconId, IconLanguage, IconMap } from '@tabler/icons';
+import { IconCalendar, IconCurrentLocation, IconHome, IconId, IconLanguage, IconMap, IconMapPins } from '@tabler/icons';
 
 // project imports
 
@@ -21,7 +22,7 @@ const MovieInfo = ({ movie, ...props }) => {
       <InfoItem title="Language" content={movie.original_language} icon={IconLanguage} />
       <InfoItem title="Also known as" content={movie.original_title} icon={IconId} />
       <InfoItem title="Filming locations" content={productionCountries} icon={IconCurrentLocation} />
-      <InfoItem title="Production companies" content={productionCompanies} icon={IconFence} />
+      <InfoItem title="Production companies" content={productionCompanies} icon={IconMapPins} />
     </Stack>
   );
 };
@@ -39,7 +40,9 @@ const InfoItem = ({ title, icon, content, children }) => {
 
   return (
     <Stack direction="row" justifyContent="flex-start" alignItems="center" spacing={1.5}>
-      <Icon stroke={1.5} size="2rem" />
+      <Box sx={{ color: 'text.secondary' }}>
+        <Icon stroke={1.5} size="2rem" />
+      </Box>
       <Typography>
         {title} {renderContent}
       </Typography>
