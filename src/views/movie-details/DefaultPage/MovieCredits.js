@@ -49,8 +49,8 @@ const CastCard = ({ ...props }) => (
         sx={{ width: CARD_HEIGHT, height: CARD_HEIGHT }}
       />
       <Box>
-        <Typography variant="h5">{props.name}</Typography>
-        <Typography sx={{ color: 'text.secondary' }}>{props.character}</Typography>
+        <Typography variant="h6">{props.name}</Typography>
+        <Typography variant="caption">{props.character}</Typography>
       </Box>
     </Box>
   </Box>
