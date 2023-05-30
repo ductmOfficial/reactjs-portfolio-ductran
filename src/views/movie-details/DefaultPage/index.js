@@ -27,28 +27,31 @@ const MovieDetails = () => {
   const isDesktop = matchUpMd;
 
   const { id } = useParams();
-  const { data } = useMovieDetails(id);
-  const movie = data || {};
+  const { data: movie, isLoading } = useMovieDetails(id);
+
+  if (isLoading) return null;
+
+  console.log('movie', movie);
 
   if (isDesktop) {
     return (
       <Box>
-        <MovieBanner data={data} />
+        <MovieBanner {...movie} />
         <Container maxWidth="xl">
           <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} sx={{ mt: 2 }}>
             <Box gridColumn="span 4">
               <Stack spacing={2}>
-                <MovieInfo data={data} />
-                <MovieCredits data={data} />
-                <MovieCollection data={data} />
-                <MoviePhotos data={data} />
+                <MovieInfo movie={movie} />
+                <MovieCredits credits={movie.credits} />
+                <MovieCollection collection={movie.belongs_to_collection} />
+                <MoviePhotos movie={movie} />
               </Stack>
             </Box>
             <Box gridColumn="span 8">
               <Stack spacing={2}>
                 <MovieMetadata {...movie} />
-                <MovieReviews data={data} />
-                <MovieContent data={data} />
+                <MovieReviews reviews={movie.reviews} />
+                <MovieContent movie={movie} />
               </Stack>
             </Box>
           </Box>
@@ -59,14 +62,14 @@ const MovieDetails = () => {
 
   return (
     <Stack spacing={2}>
-      <MovieBanner data={data} />
+      <MovieBanner {...movie} />
       <Box sx={{ px: 2 }}>
         <MovieMetadata {...movie} />
       </Box>
       <MovieProfile movie={movie} />
-      <MovieCredits data={data} />
-      <MovieReviews data={data} />
-      <MovieContent data={data} />
+      <MovieCredits credits={movie.credits} />
+      <MovieReviews reviews={movie.reviews} />
+      <MovieContent movie={movie} />
     </Stack>
   );
 };

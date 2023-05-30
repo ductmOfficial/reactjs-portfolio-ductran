@@ -30,13 +30,13 @@ const MovieProfile = ({ movie }) => {
             <Tab label="Collection" value="collection" />
           </TabList>
         </Box>
-        <TabPanel value="info" sx={{ p: 0 }}>
-          <MovieInfo {...movie} />
+        <TabPanel value="info" sx={{ p: 2 }}>
+          <MovieInfo movie={movie} />
         </TabPanel>
-        <TabPanel value="photos" sx={{ p: 0 }}>
+        <TabPanel value="photos" sx={{ p: 2 }}>
           <MoviePhotos />
         </TabPanel>
-        <TabPanel value="collection" sx={{ p: 0 }}>
+        <TabPanel value="collection" sx={{ p: 2 }}>
           <MovieCollection />
         </TabPanel>
       </TabContext>
