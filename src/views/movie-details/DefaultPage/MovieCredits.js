@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 
 // material-ui
+import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
+
+// third-party
 
 // project imports
 import MainCard from 'components/MainCard';
@@ -19,7 +21,7 @@ const MovieCredits = ({ credits, ...props }) => {
       <Box>
         <Grid container spacing={2}>
           {castOnTop.map((castItem) => (
-            <Grid key={castItem.id} item xs={6}>
+            <Grid key={castItem.id} item xs={12} sm={6}>
               <CastCard {...castItem} />
             </Grid>
           ))}
@@ -49,9 +51,13 @@ const CastCard = ({ ...props }) => (
         sx={{ width: CARD_HEIGHT, height: CARD_HEIGHT }}
       />
       <Box>
-        <Typography variant="h6">{props.name}</Typography>
+        <Typography variant="h5">{props.name}</Typography>
         <Typography variant="caption">{props.character}</Typography>
       </Box>
+      <Box flexGrow={1} />
+      <Typography variant="h3" sx={{ display: { sm: 'none' } }}>
+        {props.popularity}
+      </Typography>
     </Box>
   </Box>
 );
