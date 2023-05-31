@@ -1,17 +1,11 @@
-// material-ui
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-
 // project imports
-import BaseComponent from '../components/MovieCollection';
+import MainCard from 'components/MainCard';
+import { MovieCollection as BaseComponent } from '../container';
 
-const MovieCollection = () => (
-  <Box sx={{ p: 2, bgcolor: 'background.paper' }}>
-    <Typography variant="h3" sx={{ mb: 2 }}>
-      Collection
-    </Typography>
-    <BaseComponent />
-  </Box>
+const MovieCollection = ({ ...props }) => (
+  <MainCard>
+    <BaseComponent {...props} />
+  </MainCard>
 );
 
 export default MovieCollection;

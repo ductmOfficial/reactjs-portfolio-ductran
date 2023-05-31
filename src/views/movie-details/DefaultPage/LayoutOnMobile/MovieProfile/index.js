@@ -9,7 +9,8 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 
 // project imports
-import { MovieCollection, MovieInfo, MoviePhotos } from '../../components';
+import { MovieInfo, MoviePhotos } from '../../components';
+import { MovieCollection } from '../../container';
 
 const MovieProfile = ({ movie }) => {
   const [value, setValue] = useState('info');
@@ -35,7 +36,7 @@ const MovieProfile = ({ movie }) => {
           <MoviePhotos {...movie.images} />
         </TabPanel>
         <TabPanel value="collection" sx={{ p: 2 }}>
-          <MovieCollection />
+          <MovieCollection {...movie.belongs_to_collection} />
         </TabPanel>
       </TabContext>
     </Box>

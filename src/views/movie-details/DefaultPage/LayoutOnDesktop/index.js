@@ -25,7 +25,7 @@ const LayoutOnDesktop = ({ loading, movie }) => {
             <Stack spacing={{ xs: gridSpacing('small'), sm: gridSpacing() }}>
               <MovieInfo {...movie} />
               <MovieCredits {...movie.credits} />
-              <MovieCollection collection={movie.belongs_to_collection} />
+              <MovieCollection {...movie.belongs_to_collection} />
               <MoviePhotos {...movie.images} />
             </Stack>
           </Box>
