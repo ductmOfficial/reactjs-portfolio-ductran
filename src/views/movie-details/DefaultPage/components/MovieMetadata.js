@@ -10,6 +10,7 @@ import { useTheme } from '@mui/material/styles';
 import { IconFlame, IconHistory, IconStar, IconTrendingUp } from '@tabler/icons';
 
 // project imports
+import { borderRadius } from 'constants/theme';
 import { formatNumber } from 'utils/number';
 
 const MovieMetadata = ({ ...props }) => {
@@ -17,32 +18,32 @@ const MovieMetadata = ({ ...props }) => {
 
   return (
     <Box>
-      <Grid container spacing={2}>
+      <Grid container spacing={{ xs: 1, sm: 2 }}>
         <Grid item xs={6} lg={3}>
-          <Card
-            title="Rated"
-            content={formatNumber(props.vote_count)}
+          <Statistic
+            primary="Rated"
+            secondary={formatNumber(props.vote_count)}
             icon={<IconStar size="3rem" stroke={2} color={theme.palette.warning.main} />}
           />
         </Grid>
         <Grid item xs={6} lg={3}>
-          <Card
-            title="Popularity"
-            content={formatNumber(props.popularity)}
+          <Statistic
+            primary="Popularity"
+            secondary={formatNumber(props.popularity)}
             icon={<IconFlame size="3rem" stroke={2} color={theme.palette.error.main} />}
           />
         </Grid>
         <Grid item xs={6} lg={3}>
-          <Card
-            title="Runtime"
-            content={`${props.runtime}m`}
+          <Statistic
+            primary="Runtime"
+            secondary={`${props.runtime}m`}
             icon={<IconHistory size="3rem" stroke={2} color={theme.palette.info.main} />}
           />
         </Grid>
         <Grid item xs={6} lg={3}>
-          <Card
-            title="Profit"
-            content={`${formatNumber(props.popularity)}`}
+          <Statistic
+            primary="Profit"
+            secondary={`${formatNumber(props.popularity)}`}
             icon={<IconTrendingUp size="3rem" stroke={2} color={theme.palette.success.main} />}
           />
         </Grid>
@@ -51,20 +52,20 @@ const MovieMetadata = ({ ...props }) => {
   );
 };
 
-const Card = ({ title, icon, content }) => (
+const Statistic = ({ icon, primary, secondary }) => (
   <Box
     sx={{
-      p: 2,
-      borderRadius: '6px',
-      bgcolor: 'background.paper',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
+      borderRadius: borderRadius(),
+      bgcolor: 'background.paper',
+      p: 2,
     }}
   >
     <Box>
-      <Typography variant="h2">{content}</Typography>
-      <Typography>{title}</Typography>
+      <Typography variant="h2">{secondary}</Typography>
+      <Typography>{primary}</Typography>
     </Box>
     {icon}
   </Box>
@@ -81,8 +82,8 @@ MovieMetadata.propTypes = {
   popularity: PropTypes.number,
 };
 
-Card.propTypes = {
-  title: PropTypes.string,
-  icon: PropTypes.element,
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+Statistic.propTypes = {
+  primary: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+  secondary: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };

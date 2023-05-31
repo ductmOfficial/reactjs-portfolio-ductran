@@ -1,6 +1,6 @@
 // project imports
 import MainCard from 'components/MainCard';
-import BaseComponent from './components/MovieInfo';
+import { MovieInfo as BaseComponent } from '../components';
 
 const MovieInfo = ({ ...props }) => (
   <MainCard title="Info">
@@ -9,5 +9,3 @@ const MovieInfo = ({ ...props }) => (
 );
 
 export default MovieInfo;
-
-MovieInfo.propTypes = {};

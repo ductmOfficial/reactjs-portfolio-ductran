@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 // project imports
-import BaseComponent from './components/MoviePhotos';
+import BaseComponent from '../components/MoviePhotos';
 
 const MoviePhotos = () => (
   <Box sx={{ p: 2, bgcolor: 'background.paper' }}>

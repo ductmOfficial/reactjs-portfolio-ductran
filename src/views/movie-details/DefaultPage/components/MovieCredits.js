@@ -1,28 +1,27 @@
 import PropTypes from 'prop-types';
 
 // material-ui
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
-// third-party
-
 // project imports
 import MainCard from 'components/MainCard';
+import StyledAvatar from 'components/extended/Avatar';
+import { borderRadius, gridSpacing } from 'constants/theme';
 
-const MovieCredits = ({ credits, ...props }) => {
-  const castOnTop = credits.cast.filter((_, index) => index < 8);
-  const restCast = credits.cast.filter((_, index) => index >= 8);
+const MovieCredits = ({ cast = [] }) => {
+  const castOnTop = cast.filter((_, index) => index < 8);
+  const restCast = cast.filter((_, index) => index >= 8);
 
   return (
-    <MainCard title="Top Casts" {...props}>
+    <MainCard title="Top Casts">
       <Box>
-        <Grid container spacing={2}>
+        <Grid container spacing={{ xs: gridSpacing('small'), sm: gridSpacing() }}>
           {castOnTop.map((castItem) => (
-            <Grid key={castItem.id} item xs={12} sm={6}>
-              <CastCard {...castItem} />
+            <Grid key={castItem.id} item xs={6} sm={6}>
+              <Card {...castItem} />
             </Grid>
           ))}
         </Grid>
@@ -42,10 +41,10 @@ const MovieCredits = ({ credits, ...props }) => {
 
 const CARD_HEIGHT = 56;
 
-const CastCard = ({ ...props }) => (
-  <Box sx={{ bgcolor: 'background.default', borderRadius: `${CARD_HEIGHT}px` }}>
-    <Box display="flex" alignItems="center" gap={1} py={1} pr={1}>
-      <Avatar
+const Card = ({ ...props }) => (
+  <Box sx={{ bgcolor: 'background.default', borderRadius: borderRadius(`${CARD_HEIGHT}px`) }}>
+    <Box display="flex" alignItems="center" gap={1} pr={1}>
+      <StyledAvatar
         alt={props.name}
         src={`https://www.themoviedb.org/t/p/w276_and_h350_face${props.profile_path}`}
         sx={{ width: CARD_HEIGHT, height: CARD_HEIGHT }}
@@ -54,10 +53,6 @@ const CastCard = ({ ...props }) => (
         <Typography variant="h5">{props.name}</Typography>
         <Typography variant="caption">{props.character}</Typography>
       </Box>
-      <Box flexGrow={1} />
-      <Typography variant="h3" sx={{ display: { sm: 'none' } }}>
-        {props.popularity}
-      </Typography>
     </Box>
   </Box>
 );
@@ -65,19 +60,10 @@ const CastCard = ({ ...props }) => (
 export default MovieCredits;
 
 MovieCredits.propTypes = {
-  credits: PropTypes.shape({
-    cast: PropTypes.array,
-  }),
+  cast: PropTypes.array,
 };
 
-MovieCredits.defaultProps = {
-  credits: {
-    cast: [],
-    crew: [],
-  },
-};
-
-CastCard.propTypes = {
+Card.propTypes = {
   adult: PropTypes.bool,
   gender: PropTypes.number,
   id: PropTypes.number,

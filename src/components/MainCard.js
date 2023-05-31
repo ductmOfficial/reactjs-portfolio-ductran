@@ -5,12 +5,15 @@ import { forwardRef } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const GRID_SPACING = 2;
+// project imports
+import { borderRadius, gridSpacing } from 'constants/theme';
+
+const GRID_RATIO = 0.75;
 
 const cardStyles = {
   display: 'flex',
   flexDirection: 'column',
-  borderRadius: '6px',
+  borderRadius: borderRadius(),
   bgcolor: 'background.paper',
 };
 
@@ -22,7 +25,7 @@ const MainCard = forwardRef(({ title, footer, titleProps, contentProps, children
     <Box ref={ref} {...cardStyles} {...props}>
       {/* Card Header */}
       {shouldRenderHeader && (
-        <Box px={GRID_SPACING} pt={GRID_SPACING} pb={GRID_SPACING / 2}>
+        <Box px={gridSpacing()} pt={gridSpacing() * GRID_RATIO}>
           <Typography variant="h3" {...titleProps}>
             {title}
           </Typography>
@@ -30,18 +33,13 @@ const MainCard = forwardRef(({ title, footer, titleProps, contentProps, children
       )}
 
       {/* Card Body */}
-      <Box
-        px={GRID_SPACING}
-        pt={shouldRenderHeader ? GRID_SPACING / 2 : GRID_SPACING}
-        pb={shouldRenderFooter ? GRID_SPACING / 2 : GRID_SPACING}
-        {...contentProps}
-      >
+      <Box p={gridSpacing()} {...contentProps}>
         {children}
       </Box>
 
       {/* Card Footer */}
       {shouldRenderFooter && (
-        <Box px={GRID_SPACING} pt={GRID_SPACING / 2} pb={GRID_SPACING}>
+        <Box px={gridSpacing()} pb={gridSpacing() * GRID_RATIO}>
           {footer}
         </Box>
       )}
