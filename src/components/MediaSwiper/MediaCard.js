@@ -26,7 +26,7 @@ const MediaCard = ({ width, ...props }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton sx={{ bgcolor: 'primary.main', color: 'common.white' }}>
+        <IconButton sx={{ bgcolor: 'primary.main', color: 'common.white' }} href={`/details/${props.id}`}>
           <IconPlayerPlay />
         </IconButton>
       </CardActions>
@@ -37,6 +37,7 @@ const MediaCard = ({ width, ...props }) => {
 export default MediaCard;
 
 MediaCard.propTypes = {
+  id: PropTypes.number,
   width: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

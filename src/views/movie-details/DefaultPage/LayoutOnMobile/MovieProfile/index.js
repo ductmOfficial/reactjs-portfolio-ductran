@@ -15,6 +15,8 @@ import { MovieCollection } from '../../container';
 const MovieProfile = ({ movie }) => {
   const [value, setValue] = useState('info');
 
+  const hasCollection = movie.belongs_to_collection;
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -26,7 +28,7 @@ const MovieProfile = ({ movie }) => {
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab label="Info" value="info" />
             <Tab label="Photos" value="photos" />
-            <Tab label="Collection" value="collection" />
+            {hasCollection && <Tab label="Collection" value="collection" />}
           </TabList>
         </Box>
         <TabPanel value="info" sx={{ p: 2 }}>
@@ -35,9 +37,11 @@ const MovieProfile = ({ movie }) => {
         <TabPanel value="photos" sx={{ p: 2 }}>
           <MoviePhotos {...movie.images} />
         </TabPanel>
-        <TabPanel value="collection" sx={{ p: 2 }}>
-          <MovieCollection {...movie.belongs_to_collection} />
-        </TabPanel>
+        {hasCollection && (
+          <TabPanel value="collection" sx={{ p: 2 }}>
+            <MovieCollection {...movie.belongs_to_collection} />
+          </TabPanel>
+        )}
       </TabContext>
     </Box>
   );
