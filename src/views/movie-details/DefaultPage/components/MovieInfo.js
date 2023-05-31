@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
 // third-party
-import { IconCalendar, IconCurrentLocation, IconHome, IconId, IconLanguage, IconMap, IconMapPins } from '@tabler/icons';
+import { IconCalendar, IconCurrentLocation, IconHome, IconLanguage, IconMap, IconMapPins, IconMapSearch } from '@tabler/icons';
 
 const MovieInfo = ({ ...props }) => {
   const productionCompanies = props.production_companies?.map(({ name }) => name).join(', ');
@@ -21,7 +21,7 @@ const MovieInfo = ({ ...props }) => {
       <StyledListItem primary="Country of origin" secondary={productionCountries} icon={IconMap} />
       <StyledListItem primary="Official site" secondary={props.homepage} icon={IconHome} />
       <StyledListItem primary="Language" secondary={props.original_language} icon={IconLanguage} />
-      <StyledListItem primary="Also known as" secondary={props.original_title} icon={IconId} />
+      <StyledListItem primary="Also known as" secondary={props.original_title} icon={IconMapSearch} />
       <StyledListItem primary="Filming locations" secondary={productionCountries} icon={IconCurrentLocation} />
       <StyledListItem primary="Production companies" secondary={productionCompanies} icon={IconMapPins} />
     </StyledList>

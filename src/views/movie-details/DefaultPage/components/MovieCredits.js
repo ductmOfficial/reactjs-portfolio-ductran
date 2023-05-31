@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import MainCard from 'components/MainCard';
 import StyledAvatar from 'components/extended/Avatar';
 import { borderRadius, gridSpacing } from 'constants/theme';
+import { generateImageUrl } from 'utils/movie';
 
 const MovieCredits = ({ cast = [] }) => {
   const castOnTop = cast.filter((_, index) => index < 8);
@@ -46,7 +47,7 @@ const Card = ({ ...props }) => (
     <Box display="flex" alignItems="center" gap={1} pr={1}>
       <StyledAvatar
         alt={props.name}
-        src={`https://www.themoviedb.org/t/p/w276_and_h350_face${props.profile_path}`}
+        src={generateImageUrl('profile', props.profile_path)}
         sx={{ width: CARD_HEIGHT, height: CARD_HEIGHT }}
       />
       <Box>

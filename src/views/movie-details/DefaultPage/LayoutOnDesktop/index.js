@@ -26,7 +26,7 @@ const LayoutOnDesktop = ({ loading, movie }) => {
               <MovieInfo {...movie} />
               <MovieCredits {...movie.credits} />
               <MovieCollection collection={movie.belongs_to_collection} />
-              <MoviePhotos movie={movie} />
+              <MoviePhotos {...movie.images} />
             </Stack>
           </Box>
           <Box gridColumn="span 8">

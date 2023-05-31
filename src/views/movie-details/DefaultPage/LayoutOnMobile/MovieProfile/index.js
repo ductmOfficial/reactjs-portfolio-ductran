@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 // material-ui
 import TabContext from '@mui/lab/TabContext';
@@ -9,9 +9,7 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 
 // project imports
-import MovieInfo from '../../components/MovieInfo';
-import MoviePhotos from '../../components/MoviePhotos';
-import MovieCollection from '../../components/MovieCollection';
+import { MovieCollection, MovieInfo, MoviePhotos } from '../../components';
 
 const MovieProfile = ({ movie }) => {
   const [value, setValue] = useState('info');
@@ -34,7 +32,7 @@ const MovieProfile = ({ movie }) => {
           <MovieInfo {...movie} />
         </TabPanel>
         <TabPanel value="photos" sx={{ p: 2 }}>
-          <MoviePhotos />
+          <MoviePhotos {...movie.images} />
         </TabPanel>
         <TabPanel value="collection" sx={{ p: 2 }}>
           <MovieCollection />

@@ -11,7 +11,7 @@ const instance = axios.create({
   headers: { 'Content-Type': 'application/json' },
   params: {
     api_key: config.apiKey,
-    language: 'vi-VN',
+    // language: 'vi-VN',
   },
 });
 
