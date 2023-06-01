@@ -1,3 +1,8 @@
+export const THEME__MODE = {
+  LIGHT: 'light',
+  DARK: 'dark',
+};
+
 export const themeConfig = {
   gird: {
     spacing: 2,

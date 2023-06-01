@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 
 // material-ui
 import AppBar from '@mui/material/AppBar';
@@ -7,59 +6,59 @@ import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
-import { alpha } from '@mui/material/styles';
+import { alpha, styled } from '@mui/material/styles';
 
 // third-party
-import { IconBellRinging, IconBookmarks, IconSearch } from '@tabler/icons';
+import { IconBellRinging, IconBrightnessDown, IconSearch } from '@tabler/icons';
 
 // project imports
 import HideOnScroll from 'components/HideOnScroll';
+import { useUI } from 'context/uiContext';
 import LogoSection from './LogoSection';
 import NavMenu from './NavMenu';
 
-const Header = ({ onSearchOpen }) => (
-  <HideOnScroll>
-    <AppBar enableColorOnDark color="success" elevation={0} position="fixed" sx={{ bgcolor: 'common.white', color: 'text.primary' }}>
-      <Toolbar>
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex' } }}>
-          <LogoSection />
-          <Box sx={{ ml: 3, display: { xs: 'none', lg: 'block' } }}>
-            <NavMenu />
-          </Box>
-        </Box>
+const Header = ({ onSearchOpen }) => {
+  const { isDarkMode, onModeToggle } = useUI();
 
-        <Box sx={{ flexGrow: 0, display: 'flex', gap: 1.5 }}>
-          <IconButton
-            aria-label="search"
-            color="inherit"
-            sx={{ bgcolor: ({ palette }) => alpha(palette.grey[300], 0.35) }}
-            onClick={onSearchOpen}
-          >
-            <IconSearch />
-          </IconButton>
-          <IconButton
-            component={NavLink}
-            aria-label="my list"
-            color="inherit"
-            to="/watchlist"
-            sx={{ bgcolor: ({ palette }) => alpha(palette.grey[300], 0.35) }}
-          >
-            <IconBookmarks />
-          </IconButton>
-          <IconButton
-            aria-label="show 17 new notifications"
-            color="inherit"
-            sx={{ bgcolor: ({ palette }) => alpha(palette.grey[300], 0.35) }}
-          >
-            <Badge badgeContent={17} color="error">
-              <IconBellRinging />
-            </Badge>
-          </IconButton>
-        </Box>
-      </Toolbar>
-    </AppBar>
-  </HideOnScroll>
-);
+  return (
+    <HideOnScroll>
+      <AppBar
+        elevation={0}
+        position="fixed"
+        color="default"
+        sx={{ bgcolor: 'background.paper', color: 'text.primary' }}
+        enableColorOnDark={isDarkMode}
+      >
+        <Toolbar>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex' } }}>
+            <LogoSection />
+            <Box sx={{ ml: 3, display: { xs: 'none', lg: 'block' } }}>
+              <NavMenu />
+            </Box>
+          </Box>
+
+          <Box sx={{ flexGrow: 0, display: 'flex', gap: 1.5 }}>
+            <StyledIconButton color="inherit" aria-label="search" onClick={onSearchOpen}>
+              <IconSearch />
+            </StyledIconButton>
+            <StyledIconButton color="inherit" aria-label="dark-mode" onClick={onModeToggle}>
+              <IconBrightnessDown />
+            </StyledIconButton>
+            <StyledIconButton color="inherit" aria-label="show 17 new notifications">
+              <Badge badgeContent={17} color="error">
+                <IconBellRinging />
+              </Badge>
+            </StyledIconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </HideOnScroll>
+  );
+};
+
+const StyledIconButton = styled((props) => (
+  <IconButton {...props} sx={{ bgcolor: ({ palette }) => alpha(palette.grey[300], 0.35), ...props.sx }} />
+))(() => ({}));
 
 export default Header;
 

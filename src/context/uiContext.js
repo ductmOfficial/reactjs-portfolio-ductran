@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 
 // material-ui
 import { CssBaseline, StyledEngineProvider } from '@mui/material';
@@ -15,11 +15,15 @@ import themes from 'themes';
 
 // project imports
 import config from 'config';
+import { STORAGE__THEME_MODE } from 'constants/storage';
+import { THEME__MODE } from 'constants/theme';
+import useLocalStorage from 'hooks/useLocalStorage';
 import NavigationScroll from 'layout/NavigationScroll';
 
 export const UIContext = createContext(null);
 
 export const UIProvider = ({ children }) => {
+  const [mode, setMode] = useLocalStorage(STORAGE__THEME_MODE, THEME__MODE.LIGHT);
   const [openBackdrop, setOpenBackdrop] = useState(false);
 
   const [customization, setCustomization] = useState({
@@ -29,13 +33,20 @@ export const UIProvider = ({ children }) => {
     navType: 'light',
   });
 
+  const handleModeToggle = useCallback(() => {
+    setMode((prevMode) => (prevMode === THEME__MODE.LIGHT ? THEME__MODE.DARK : THEME__MODE.LIGHT));
+  }, [setMode]);
+
   const value = useMemo(
     () => ({
+      mode,
+      isDarkMode: mode === THEME__MODE.DARK,
       customization,
       setCustomization,
       setOpenBackdrop,
+      onModeToggle: handleModeToggle,
     }),
-    [customization]
+    [customization, handleModeToggle, mode]
   );
 
   return (
@@ -51,17 +62,19 @@ export const UIProvider = ({ children }) => {
 
 export const useUI = () => {
   const context = useContext(UIContext);
+
   if (context === undefined) {
     throw new Error(`useUI must be used within a UIProvider`);
   }
+
   return context;
 };
 
 export const ManagedUIContext = ({ children }) => (
   <UIProvider>
-    {({ customization }) => (
+    {({ customization, mode }) => (
       <StyledEngineProvider injectFirst>
-        <ThemeProvider theme={themes(customization)}>
+        <ThemeProvider theme={themes(customization, mode)}>
           <CssBaseline />
           <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
             <NavigationScroll>{children}</NavigationScroll>

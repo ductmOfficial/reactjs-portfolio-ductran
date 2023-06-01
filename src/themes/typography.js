@@ -3,52 +3,58 @@
  * @param {JsonObject} theme theme customization object
  */
 
-export default function themeTypography(theme) {
+export default function themeTypography(palette) {
   return {
-    fontFamily: theme?.customization?.fontFamily,
+    fontFamily: `'Segoe UI', sans-serif`,
+    htmlFontSize: 16,
+    fontSize: 14,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
     h6: {
       fontWeight: 600,
-      color: theme.heading,
+      color: palette.text.primary,
       fontSize: '0.75rem',
     },
     h5: {
       fontSize: '0.875rem',
-      color: theme.heading,
+      color: palette.text.primary,
       fontWeight: 600,
     },
     h4: {
       fontSize: '1rem',
-      color: theme.heading,
+      color: palette.text.primary,
       fontWeight: 600,
     },
     h3: {
       fontSize: '1.25rem',
-      color: theme.heading,
+      color: palette.text.primary,
       fontWeight: 600,
     },
     h2: {
       fontSize: '1.5rem',
-      color: theme.heading,
+      color: palette.text.primary,
       fontWeight: 700,
     },
     h1: {
       fontSize: '2.125rem',
-      color: theme.heading,
+      color: palette.text.primary,
       fontWeight: 700,
     },
     subtitle1: {
       fontSize: '0.875rem',
       fontWeight: 600,
-      color: theme.textPrimary,
+      color: palette.text.primary,
     },
     subtitle2: {
       fontSize: '0.75rem',
       fontWeight: 400,
-      color: theme.textSecondary,
+      color: palette.text.secondary,
     },
     caption: {
       fontSize: '0.75rem',
-      color: theme.textSecondary,
+      color: palette.text.secondary,
       fontWeight: 400,
     },
     body1: {
@@ -60,11 +66,7 @@ export default function themeTypography(theme) {
       letterSpacing: '0em',
       fontWeight: 400,
       lineHeight: '1.5em',
-      color: theme.textPrimary,
-    },
-    button: {},
-    shortShadow: {
-      boxShadow: `${theme.shadow}`,
+      color: palette.text.primary,
     },
   };
 }

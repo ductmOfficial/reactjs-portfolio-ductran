@@ -1,12 +1,12 @@
-export default function componentStyleOverrides(theme) {
+export default function componentStyleOverrides(palette) {
   return {
     MuiCssBaseline: {
       styleOverrides: `
         :root {
-          --text-primary: ${theme.textPrimary};
+          --text-primary: ${palette.text.primary};
         }
         a {
-          color: ${theme.colors.primaryMain}
+          color: ${palette.primary.main}
         }
     `,
     },

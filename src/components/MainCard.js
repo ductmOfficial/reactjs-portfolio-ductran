@@ -22,7 +22,7 @@ const MainCard = forwardRef(({ title, footer, titleProps, contentProps, children
   const shouldRenderFooter = Boolean(footer);
 
   return (
-    <Box ref={ref} {...cardStyles} {...props}>
+    <Box ref={ref} className="D-MainCard" {...cardStyles} {...props}>
       {/* Card Header */}
       {shouldRenderHeader && (
         <Box px={gridSpacing()} pt={gridSpacing() * GRID_RATIO}>

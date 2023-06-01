@@ -2,18 +2,31 @@
 import Box from '@mui/material/Box';
 
 // project imports
+import MainCard from 'components/MainCard';
 
 const MovieContent = () => (
-  <Box sx={{ p: 2, bgcolor: 'primary.light', minHeight: 220 }}>
-    <Box sx={{ display: 'flex', gap: 2, flexDirection: 'column' }}>
-      <Box sx={{ p: 2, bgcolor: 'background.paper', minHeight: 100 }}>Trailer</Box>
-      <Box sx={{ p: 2, bgcolor: 'background.paper', minHeight: 100 }}>Similar Movies</Box>
-      <Box sx={{ p: 2, bgcolor: 'background.paper', minHeight: 100 }}>Trailer</Box>
-      <Box sx={{ p: 2, bgcolor: 'background.paper', minHeight: 100 }}>Trailer</Box>
-      <Box sx={{ p: 2, bgcolor: 'background.paper', minHeight: 100 }}>Similar Movies</Box>
-      <Box sx={{ p: 2, bgcolor: 'background.paper', minHeight: 100 }}>Trailer</Box>
-      <Box sx={{ p: 2, bgcolor: 'background.paper', minHeight: 100 }}>Recommedation for YOU</Box>
-    </Box>
+  <Box sx={{ display: 'flex', gap: 2, flexDirection: 'column' }}>
+    <MainCard title="Trailer">
+      <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
+    </MainCard>
+    <MainCard title="Similar Movies">
+      <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
+    </MainCard>
+    <MainCard title="Trailer">
+      <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
+    </MainCard>
+    <MainCard title="Trailer">
+      <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
+    </MainCard>
+    <MainCard title="Similar Movies">
+      <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
+    </MainCard>
+    <MainCard title="Trailer">
+      <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
+    </MainCard>
+    <MainCard title="Recommedation for YOU">
+      <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
+    </MainCard>
   </Box>
 );
 
