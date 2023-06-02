@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 
 // third-party
 import { IconCalendar, IconCurrentLocation, IconHome, IconLanguage, IconMap, IconMapPins, IconMapSearch } from '@tabler/icons';
+import { Link } from '@mui/material';
 
 const MovieInfo = ({ ...props }) => {
   const productionCompanies = props.production_companies?.map(({ name }) => name).join(', ');
@@ -19,7 +20,15 @@ const MovieInfo = ({ ...props }) => {
     <StyledList dense>
       <StyledListItem primary="Release Date" secondary={props.release_date} icon={IconCalendar} />
       <StyledListItem primary="Country of origin" secondary={productionCountries} icon={IconMap} />
-      <StyledListItem primary="Official site" secondary={props.homepage} icon={IconHome} />
+      <StyledListItem
+        primary="Official site"
+        secondary={
+          <Link href={props.homepage} target="_blank" color="inherit">
+            Homepage
+          </Link>
+        }
+        icon={IconHome}
+      />
       <StyledListItem primary="Language" secondary={props.original_language} icon={IconLanguage} />
       <StyledListItem primary="Also known as" secondary={props.original_title} icon={IconMapSearch} />
       <StyledListItem primary="Filming locations" secondary={productionCountries} icon={IconCurrentLocation} />
@@ -70,5 +79,5 @@ MovieInfo.propTypes = {
 StyledListItem.propTypes = {
   icon: PropTypes.func.isRequired,
   primary: PropTypes.string.isRequired,
-  secondary: PropTypes.string,
+  secondary: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
