@@ -1,5 +1,3 @@
-import { borderRadius } from 'constants/theme';
-
 export default function componentStyleOverrides(palette) {
   return {
     MuiCssBaseline: {
@@ -17,23 +15,7 @@ export default function componentStyleOverrides(palette) {
       styleOverrides: {
         root: {
           textTransform: 'unset',
-        },
-      },
-    },
-    MuiFilledInput: {
-      styleOverrides: {
-        root: {
-          borderRadius: borderRadius(),
-          borderBottom: 'unset',
-          // '&:before, &:after': {
-          //   borderBottom: 'unset',
-          // },
-          // '&:hover:not(.Mui-disabled, .Mui-error):before': {
-          //   borderBottom: 'unset',
-          // },
-          // '&.Mui-focused:after': {
-          //   borderBottom: 'unset',
-          // },
+          boxShadow: 'unset',
         },
       },
     },

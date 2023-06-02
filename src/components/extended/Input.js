@@ -51,7 +51,7 @@ const StyledInput = styled(({ size, rounded, ...props }) => (
     boxSizing: 'border-box',
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(2, 2),
-    transition: theme.transitions.create(['background-color', 'box-shadow']),
+    transition: theme.transitions.create(['box-shadow']),
 
     '&:focus': {
       boxShadow: `${alpha(theme.palette.background.default, 0.25)} 0 0 0 0.2rem`,

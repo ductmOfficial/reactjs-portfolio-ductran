@@ -22,7 +22,7 @@ const MovieCollection = ({ parts = [], onGetParts, ...props }) => {
       </Typography>
 
       {!shouldRenderList && (
-        <Button variant="outlined" size="small" onClick={onGetParts}>
+        <Button variant="contained" size="small" onClick={onGetParts}>
           Get parts!
         </Button>
       )}

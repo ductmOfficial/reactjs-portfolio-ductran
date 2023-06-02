@@ -1,4 +1,8 @@
+import { alpha } from '@mui/material/styles';
+
+// project imports
 import { THEME__MODE } from 'constants/theme';
+import { generatePaletteColor } from 'utils/theme';
 
 export default {
   mode: THEME__MODE.DARK,
@@ -6,40 +10,16 @@ export default {
     black: '#000000',
     white: '#ffffff',
   },
-  primary: {
-    light: '#264c62',
-    main: '#109cf1',
-    dark: '#0b6da8',
-    contrastText: '#fff',
-  },
-  secondary: {
-    light: '#f68e80',
-    main: '#f47261',
-    dark: '#aa4f43',
-    contrastText: '#fff',
-  },
-  error: {
-    light: '#c34f3f',
-    main: '#b5230f',
-    dark: '#7e180a',
-    contrastText: '#fff',
-  },
-  warning: {
-    light: '#f4c433',
-    main: '#f2b600',
-    dark: '#a97f00',
-    contrastText: '#fff',
-  },
-  success: {
-    light: '#339c5f',
-    main: '#018438',
-    dark: '#005c27',
-    contrastText: '#fff',
-  },
+  primary: generatePaletteColor('#1f306e'),
+  secondary: generatePaletteColor('#c7417b'),
+  error: generatePaletteColor('#d32f2f'),
+  warning: generatePaletteColor('#ed6c02'),
+  info: generatePaletteColor('#0288d1'),
+  success: generatePaletteColor('#2e7d32'),
   text: {
     primary: '#e9e8ec',
-    secondary: '#e9e8ec',
-    disabled: '#e9e8ec',
+    secondary: alpha('#e9e8ec', 0.7),
+    disabled: alpha('#e9e8ec', 0.5),
   },
   background: {
     paper: '#181818',
