@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 // material-ui
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
@@ -11,11 +12,10 @@ import { styled } from '@mui/material/styles';
 import truncate from 'lodash/truncate';
 
 // project imports
-import { Link } from '@mui/material';
 import MainCard from 'components/MainCard';
+import StyledInput from 'components/extended/Input';
 import { TEMP_IMAGE_AVATAR } from 'constants/temp';
 import { borderRadius } from 'constants/theme';
-import { useState } from 'react';
 import { generateImageUrl } from 'utils/movie';
 
 const MovieReviews = ({ reviews = [] }) => (
@@ -55,10 +55,10 @@ const CommentListItem = ({ ...props }) => (
 const CommentEditor = () => (
   <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
     <Box flex="0 0 auto">
-      <Avatar src={TEMP_IMAGE_AVATAR} sx={{ width: 53.13, height: 53.13 }} />
+      <Avatar src={TEMP_IMAGE_AVATAR} sx={{ width: 48, height: 48 }} />
     </Box>
     <Box flex="1 1">
-      <TextField fullWidth disabled variant="outlined" placeholder="Write a review..." />
+      <StyledInput fullWidth disabled rounded="pills" placeholder="Write a review..." />
     </Box>
   </Box>
 );
