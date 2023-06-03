@@ -6,7 +6,7 @@ const config = {
   fontFamily: `'Segoe UI', sans-serif`,
   borderRadius: 4,
   seo: {
-    siteName: 'Reactjs TMDB',
+    siteName: 'D.Movies',
     description: '',
   },
   apiKey: '4fb6229be9422aa0c9ada530de02a45d',

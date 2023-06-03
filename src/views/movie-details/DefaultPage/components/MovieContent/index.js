@@ -36,7 +36,7 @@ const ContentFrame = ({ type, data = [] }) => {
     case 'review':
       return <MovieReviews {...data} />;
     case 'video':
-      return (data || []).filter(Boolean).map((item) => <MoviePost key={item.id} {...item} />);
+      return (data || []).filter(Boolean).map((item) => <MoviePost key={item.id} video={item} />);
     case 'similar_primary':
       return <MovieSimilar movies={data} />;
     case 'similar_secondary':

@@ -4,15 +4,17 @@ import PropTypes from 'prop-types';
 import MainCard from 'components/MainCard';
 import ResponsivePlayer from 'components/ResponsivePlayer';
 
-const MoviePost = ({ key, name }) => (
-  <MainCard title={`Trailer: ${name}`}>
-    <ResponsivePlayer url={`https://www.youtube.com/watch?v=${key}`} />
+const MoviePost = ({ video }) => (
+  <MainCard title={`Trailer: ${video.name}`}>
+    <ResponsivePlayer url={`https://www.youtube.com/watch?v=${video.key}`} />
   </MainCard>
 );
 
 export default MoviePost;
 
 MoviePost.propTypes = {
-  name: PropTypes.string,
-  key: PropTypes.string,
+  video: PropTypes.shape({
+    name: PropTypes.string,
+    key: PropTypes.string,
+  }),
 };

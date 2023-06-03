@@ -15,7 +15,7 @@ export default {
   error: generatePaletteColor('#d32f2f'),
   warning: generatePaletteColor('#ed6c02'),
   info: generatePaletteColor('#0288d1'),
-  success: generatePaletteColor('#2e7d32'),
+  success: generatePaletteColor('#4CAF50'),
   text: {
     primary: '#354e5c',
     secondary: alpha('#354e5c', 0.7),

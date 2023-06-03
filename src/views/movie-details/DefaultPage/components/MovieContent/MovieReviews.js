@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
 // third-party
+import chunk from 'lodash/chunk';
 import truncate from 'lodash/truncate';
 
 // project imports
@@ -29,28 +30,40 @@ const MovieReviews = ({ video, reviews = [] }) => (
 );
 
 const PAGING_PER_PAGE = 2;
-const CommentContainer = ({ comments = [] }) => {
-  const [more, setMore] = useState(false);
+const PAGING_SIZE_INIT = 0;
 
-  const shownComments = !more ? comments.slice(0, PAGING_PER_PAGE) : comments;
-  const showPaginator = comments.length > PAGING_PER_PAGE;
+const CommentContainer = ({ comments = [] }) => {
+  const group = chunk(comments, PAGING_PER_PAGE);
+  const [size, setSize] = useState(PAGING_SIZE_INIT);
+  const [displayComments, setDisplayComment] = useState(group[PAGING_SIZE_INIT]);
+
+  const handleMore = () => {
+    const nextSize = size + 1;
+    const nextComments = group[nextSize] || [];
+
+    setSize(nextSize);
+    setDisplayComment((prev) => [...prev, ...nextComments]);
+  };
 
   return (
     <CommentBox>
       <CommentEditor />
       <CommentList>
-        {shownComments.map((comment) => (
+        {displayComments.map((comment) => (
           <CommentListItem key={comment.id} {...comment} />
         ))}
       </CommentList>
 
-      {showPaginator && (
-        <Box display="flex" justifyContent="space-between">
-          <Link noWrap underline="none" component="button" sx={{ verticalAlign: 'unset' }} onClick={() => setMore(true)}>
-            Show all
-          </Link>
+      {comments.length > PAGING_PER_PAGE && (
+        <Box display="flex">
+          {displayComments.length < comments.length && (
+            <Link noWrap underline="none" component="button" sx={{ verticalAlign: 'unset' }} onClick={handleMore}>
+              View more comments
+            </Link>
+          )}
+          <Box flexGrow={1} />
           <Typography sx={{ color: 'text.secondary' }}>
-            {shownComments.length} of {comments.length}
+            {displayComments.length} of {comments.length}
           </Typography>
         </Box>
       )}
