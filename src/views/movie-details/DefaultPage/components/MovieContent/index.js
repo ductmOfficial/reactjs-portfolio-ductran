@@ -1,49 +1,70 @@
+import PropTypes from 'prop-types';
+
 // material-ui
 import Box from '@mui/material/Box';
 
-// third-party
-import shuffle from 'lodash/shuffle';
-
 // project imports
-import MainCard from 'components/MainCard';
-import ResponsivePlayer from 'components/ResponsivePlayer';
+import MoviePost from './MoviePost';
+import MovieRecommendation from './MovieRecommendation';
+import MovieReviews from './MovieReviews';
+import MovieSimilar from './MovieSimilar';
 
-// assets
-import React from 'react';
-import data from './fixture.json';
+const MovieContent = ({ reviews = [], recommendations = [], similar = [], videos = [] }) => {
+  const shownVideos = videos.filter(({ type }) => ['Trailer', 'Teaser'].includes(type));
+  const [first, second, ...others] = shownVideos;
 
-const MovieContent = () => {
-  const [officialTrailer, ...trailers] = data.map(({ id, key, name }) => (
-    <MainCard key={id} title={`Trailer: ${name}`}>
-      <ResponsivePlayer url={`https://www.youtube.com/watch?v=${key}`} />
-    </MainCard>
-  ));
-
-  const nodes = shuffle([
-    ...trailers,
-    <MainCard title="Similar Movies">
-      <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
-    </MainCard>,
-    <MainCard title="Similar Movies">
-      <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
-    </MainCard>,
-  ]);
+  const templates = [
+    { type: 'review', data: { video: first, reviews } },
+    { type: 'similar_primary', data: similar.slice(0, 3) },
+    { type: 'video', data: [second] },
+    { type: 'similar_secondary', data: similar.slice(3) },
+    { type: 'video', data: others },
+    { type: 'recommedation', data: recommendations },
+  ];
 
   return (
     <Box sx={{ display: 'flex', gap: 2, flexDirection: 'column' }}>
-      {officialTrailer}
-
-      {nodes.map((node, index) => (
-        <React.Fragment key={`node[${index}]`}>{node}</React.Fragment>
+      {templates.map((frame, index) => (
+        <ContentFrame key={`${frame.type}[${index}]`} {...frame} />
       ))}
-
-      <MainCard title="Recommedation for YOU">
-        <Box sx={{ p: 2, bgcolor: 'background.default', minHeight: 220 }} />
-      </MainCard>
     </Box>
   );
 };
 
+const ContentFrame = ({ type, data = [] }) => {
+  switch (type) {
+    case 'review':
+      return <MovieReviews {...data} />;
+    case 'video':
+      return (data || []).filter(Boolean).map((item) => <MoviePost key={item.id} {...item} />);
+    case 'similar_primary':
+      return <MovieSimilar movies={data} />;
+    case 'similar_secondary':
+      return <MovieSimilar movies={data} />;
+    case 'recommedation':
+      return <MovieRecommendation movies={data} />;
+    default:
+      return null;
+  }
+};
+
 export default MovieContent;
 
-MovieContent.propTypes = {};
+MovieContent.propTypes = {
+  recommendations: PropTypes.array,
+  reviews: PropTypes.array,
+  similar: PropTypes.array,
+  videos: PropTypes.array,
+};
+
+MovieContent.defaultProps = {
+  recommendations: [],
+  reviews: [],
+  similar: [],
+  videos: [],
+};
+
+ContentFrame.propTypes = {
+  type: PropTypes.string,
+  data: PropTypes.any,
+};

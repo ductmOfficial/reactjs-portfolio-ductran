@@ -6,8 +6,7 @@ import { useTheme } from '@mui/material/styles';
 
 // project imports
 import { useMovieDetails } from 'services/movies';
-import LayoutOnDesktop from './LayoutOnDesktop';
-import LayoutOnMobile from './LayoutOnMobile';
+import { GridView, ListView } from './layout';
 
 const BREAK_POINT = 'md';
 
@@ -17,7 +16,7 @@ const MovieDetails = () => {
 
   const { id } = useParams();
   const { data: movie, isLoading } = useMovieDetails(id);
-  const Component = matchUpMd ? LayoutOnDesktop : LayoutOnMobile;
+  const Component = matchUpMd ? GridView : ListView;
 
   return <Component loading={isLoading} movie={movie} />;
 };

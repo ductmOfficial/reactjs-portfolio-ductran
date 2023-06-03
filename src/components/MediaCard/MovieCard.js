@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 // third-party
 import _ from 'lodash';
 
-const MovieCard = ({ title, overview, ...item }) => {
+const MovieCard = ({ id, title, overview, ...item }) => {
   const backdrop = item.backdrop_path
     ? `https://image.tmdb.org/t/p/w500${item.backdrop_path}`
     : 'https://cdn11.bigcommerce.com/s-1812kprzl2/images/stencil/original/products/448/5071/no-image__13489.1665668163.jpg?c=2';
@@ -28,7 +28,7 @@ const MovieCard = ({ title, overview, ...item }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small" disableElevation>
+        <Button variant="contained" size="small" disableElevation href={`/details/${id}`}>
           Play
         </Button>
         <Button variant="outlined" size="small">
@@ -42,6 +42,7 @@ const MovieCard = ({ title, overview, ...item }) => {
 export default MovieCard;
 
 MovieCard.propTypes = {
+  id: PropTypes.number,
   title: PropTypes.string,
   overview: PropTypes.string,
   backdrop_path: PropTypes.string,

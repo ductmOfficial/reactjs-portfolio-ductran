@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import Stack from '@mui/material/Stack';
 
 // project imports
-import { MovieContent, MovieCredits, MovieReviews } from '../components';
+import { MovieContent, MovieCredits } from '../../components';
 import MovieBanner from './MovieBanner';
 import MovieMetadata from './MovieMetadata';
 import MovieProfile from './MovieProfile';
 
-const LayoutOnMobile = ({ loading, movie }) => {
+const ListView = ({ loading, movie }) => {
   if (loading) return null;
 
   return (
@@ -18,15 +18,14 @@ const LayoutOnMobile = ({ loading, movie }) => {
       <MovieMetadata {...movie} />
       <MovieProfile movie={movie} />
       <MovieCredits {...movie.credits} />
-      <MovieReviews reviews={movie.reviews} />
-      <MovieContent movie={movie} />
+      <MovieContent {...movie} />
     </Stack>
   );
 };
 
-export default LayoutOnMobile;
+export default ListView;
 
-LayoutOnMobile.propTypes = {
+ListView.propTypes = {
   movie: PropTypes.object,
   loading: PropTypes.bool,
 };

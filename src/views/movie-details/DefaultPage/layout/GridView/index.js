@@ -6,14 +6,14 @@ import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 
 // project imports
-import { MovieContent, MovieCredits, MovieMetadata, MovieReviews } from '../components';
+import { gridSpacing } from 'constants/theme';
+import { MovieContent, MovieCredits, MovieMetadata } from '../../components';
 import MovieBanner from './MovieBanner';
 import MovieCollection from './MovieCollection';
 import MovieInfo from './MovieInfo';
 import MoviePhotos from './MoviePhotos';
-import { gridSpacing } from 'constants/theme';
 
-const LayoutOnDesktop = ({ loading, movie }) => {
+const GridView = ({ loading, movie }) => {
   if (loading) return null;
 
   return (
@@ -32,8 +32,7 @@ const LayoutOnDesktop = ({ loading, movie }) => {
           <Box gridColumn="span 8">
             <Stack spacing={{ xs: 1, sm: 2 }}>
               <MovieMetadata {...movie} />
-              <MovieReviews reviews={movie.reviews} />
-              <MovieContent movie={movie} />
+              <MovieContent {...movie} />
             </Stack>
           </Box>
         </Box>
@@ -42,9 +41,9 @@ const LayoutOnDesktop = ({ loading, movie }) => {
   );
 };
 
-export default LayoutOnDesktop;
+export default GridView;
 
-LayoutOnDesktop.propTypes = {
+GridView.propTypes = {
   movie: PropTypes.object,
   loading: PropTypes.bool,
 };

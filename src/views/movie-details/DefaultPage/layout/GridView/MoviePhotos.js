@@ -1,6 +1,6 @@
 // project imports
 import MainCard from 'components/MainCard';
-import { MoviePhotos as BaseComponent } from '../components';
+import { MoviePhotos as BaseComponent } from '../../components';
 
 const MoviePhotos = ({ ...props }) => (
   <MainCard title="Photos">

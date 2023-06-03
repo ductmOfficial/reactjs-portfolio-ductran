@@ -10,8 +10,8 @@ export default {
     black: '#000000',
     white: '#ffffff',
   },
-  primary: generatePaletteColor('#455566'),
-  secondary: generatePaletteColor('#d9dde0', '#455566'),
+  primary: generatePaletteColor('#3a9efd'),
+  secondary: generatePaletteColor('#F7A400', '#3a9efd'),
   error: generatePaletteColor('#d32f2f'),
   warning: generatePaletteColor('#ed6c02'),
   info: generatePaletteColor('#0288d1'),
@@ -25,5 +25,5 @@ export default {
     paper: '#ffffff',
     default: '#f1f1f1',
   },
-  divider: '#cddff1',
+  divider: '#f1f1f1',
 };

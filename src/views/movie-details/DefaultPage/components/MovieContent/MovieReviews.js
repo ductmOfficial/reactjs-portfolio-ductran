@@ -13,23 +13,50 @@ import truncate from 'lodash/truncate';
 
 // project imports
 import MainCard from 'components/MainCard';
+import ResponsivePlayer from 'components/ResponsivePlayer';
 import StyledInput from 'components/extended/Input';
 import { TEMP_IMAGE_AVATAR } from 'constants/temp';
 import { borderRadius } from 'constants/theme';
 import { generateImageUrl } from 'utils/movie';
 
-const MovieReviews = ({ reviews = [] }) => (
+const MovieReviews = ({ video, reviews = [] }) => (
   <MainCard>
+    <Box display="flex" flexDirection="column" gap={2}>
+      {video && <ResponsivePlayer url={`https://www.youtube.com/watch?v=${video.key}`} />}
+      <CommentContainer comments={reviews} />
+    </Box>
+  </MainCard>
+);
+
+const PAGING_PER_PAGE = 2;
+const CommentContainer = ({ comments = [] }) => {
+  const [more, setMore] = useState(false);
+
+  const shownComments = !more ? comments.slice(0, PAGING_PER_PAGE) : comments;
+  const showPaginator = comments.length > PAGING_PER_PAGE;
+
+  return (
     <CommentBox>
       <CommentEditor />
       <CommentList>
-        {reviews.map((review) => (
-          <CommentListItem key={review.id} {...review} />
+        {shownComments.map((comment) => (
+          <CommentListItem key={comment.id} {...comment} />
         ))}
       </CommentList>
+
+      {showPaginator && (
+        <Box display="flex" justifyContent="space-between">
+          <Link noWrap underline="none" component="button" sx={{ verticalAlign: 'unset' }} onClick={() => setMore(true)}>
+            Show all
+          </Link>
+          <Typography sx={{ color: 'text.secondary' }}>
+            {shownComments.length} of {comments.length}
+          </Typography>
+        </Box>
+      )}
     </CommentBox>
-  </MainCard>
-);
+  );
+};
 
 const CommentBox = styled((props) => <Box display="flex" flexDirection="column" gap={2} {...props} />)(() => ({}));
 
@@ -96,6 +123,7 @@ export default MovieReviews;
 
 MovieReviews.propTypes = {
   reviews: PropTypes.array,
+  video: PropTypes.object,
 };
 
 TypographyTruncator.propTypes = {
@@ -105,6 +133,10 @@ TypographyTruncator.propTypes = {
     omission: PropTypes.string,
     separator: PropTypes.string,
   }),
+};
+
+CommentContainer.propTypes = {
+  comments: PropTypes.array,
 };
 
 CommentEditor.propTypes = {};

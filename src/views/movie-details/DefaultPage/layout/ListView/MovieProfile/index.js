@@ -9,8 +9,8 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 
 // project imports
-import { MovieInfo, MoviePhotos } from '../../components';
-import { MovieCollection } from '../../container';
+import { MovieInfo, MoviePhotos } from '../../../components';
+import { MovieCollection } from '../../../container';
 
 const MovieProfile = ({ movie }) => {
   const [value, setValue] = useState('info');
