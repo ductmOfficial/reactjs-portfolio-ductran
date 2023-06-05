@@ -10,11 +10,11 @@ import { styled } from '@mui/material/styles';
 
 // third-party
 import chunk from 'lodash/chunk';
-import truncate from 'lodash/truncate';
 
 // project imports
 import MainCard from 'components/MainCard';
 import ResponsivePlayer from 'components/ResponsivePlayer';
+import TypographyTruncator from 'components/TypographyTruncator';
 import StyledInput from 'components/extended/Input';
 import { TEMP_IMAGE_AVATAR } from 'constants/temp';
 import { borderRadius } from 'constants/theme';
@@ -103,49 +103,11 @@ const CommentEditor = () => (
   </Box>
 );
 
-const TypographyTruncator = ({ content = '', options = {} }) => {
-  const [show, setShow] = useState(false);
-  const isFull = content.length <= options.length;
-
-  if (isFull || show) {
-    return <Typography>{content}</Typography>;
-  }
-
-  return (
-    <Typography>
-      {truncate(content, {
-        length: 30,
-        omission: '...',
-        separator: '/[,- ]/',
-        ...options,
-      })}
-      <Link
-        noWrap
-        underline="none"
-        component="button"
-        sx={{ ml: 0.5, color: 'text.secondary', fontWeight: 600, lineHeight: 'inherit', verticalAlign: 'unset' }}
-        onClick={() => setShow(true)}
-      >
-        See more
-      </Link>
-    </Typography>
-  );
-};
-
 export default MovieReviews;
 
 MovieReviews.propTypes = {
   reviews: PropTypes.array,
   video: PropTypes.object,
-};
-
-TypographyTruncator.propTypes = {
-  content: PropTypes.string,
-  options: PropTypes.shape({
-    length: PropTypes.number,
-    omission: PropTypes.string,
-    separator: PropTypes.string,
-  }),
 };
 
 CommentContainer.propTypes = {
