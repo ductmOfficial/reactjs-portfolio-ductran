@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 // project imports
 import { useDetails } from 'services/collection';
+import { TMovieDetails } from 'types';
 import { MovieCollection as BaseComponent } from '../components';
-import { useState } from 'react';
 
 const MovieCollection = ({ ...props }) => {
   const [id, setId] = useState();
@@ -16,9 +16,4 @@ const MovieCollection = ({ ...props }) => {
 
 export default MovieCollection;
 
-MovieCollection.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
-  poster_path: PropTypes.string,
-  backdrop_path: PropTypes.string,
-};
+MovieCollection.propTypes = TMovieDetails;

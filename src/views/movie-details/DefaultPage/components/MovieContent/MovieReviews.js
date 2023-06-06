@@ -13,9 +13,9 @@ import chunk from 'lodash/chunk';
 
 // project imports
 import MainCard from 'components/MainCard';
-import ResponsivePlayer from 'components/ResponsivePlayer';
-import TypographyTruncator from 'components/TypographyTruncator';
-import StyledInput from 'components/extended/Input';
+import { StyledInput } from 'components/mui-extended';
+import { TypographyTruncator } from 'components/shared';
+import { ResponsivePlayer } from 'components/extended';
 import { TEMP_IMAGE_AVATAR } from 'constants/temp';
 import { borderRadius } from 'constants/theme';
 import { generateImageUrl } from 'utils/movie';

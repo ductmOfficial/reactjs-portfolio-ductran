@@ -7,6 +7,7 @@ import Stack from '@mui/material/Stack';
 
 // project imports
 import { gridSpacing } from 'constants/theme';
+import { TMovieDetails } from 'types';
 import { MovieContent, MovieCredits, MovieMetadata } from '../../components';
 import MovieBanner from './MovieBanner';
 import MovieCollection from './MovieCollection';
@@ -44,6 +45,6 @@ const GridView = ({ loading, movie }) => {
 export default GridView;
 
 GridView.propTypes = {
-  movie: PropTypes.object,
+  movie: PropTypes.shape(TMovieDetails),
   loading: PropTypes.bool,
 };

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
 // material-ui
+import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -10,7 +11,9 @@ import Typography from '@mui/material/Typography';
 
 // third-party
 import { IconCalendar, IconCurrentLocation, IconHome, IconLanguage, IconMap, IconMapPins, IconMapSearch } from '@tabler/icons';
-import { Link } from '@mui/material';
+
+// project imports
+import { TMovieDetails } from 'types';
 
 const MovieInfo = ({ ...props }) => {
   const productionCompanies = props.production_companies?.map(({ name }) => name).join(', ');
@@ -67,14 +70,7 @@ const StyledListItem = ({ icon, primary, secondary }) => {
 
 export default MovieInfo;
 
-MovieInfo.propTypes = {
-  production_companies: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })),
-  production_countries: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })),
-  release_date: PropTypes.string,
-  homepage: PropTypes.string,
-  original_language: PropTypes.string,
-  original_title: PropTypes.string,
-};
+MovieInfo.propTypes = TMovieDetails;
 
 StyledListItem.propTypes = {
   icon: PropTypes.func.isRequired,

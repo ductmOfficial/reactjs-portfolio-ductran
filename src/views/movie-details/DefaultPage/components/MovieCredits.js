@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 // material-ui
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -8,8 +6,9 @@ import Typography from '@mui/material/Typography';
 
 // project imports
 import MainCard from 'components/MainCard';
-import StyledAvatar from 'components/extended/Avatar';
+import { StyledAvatar } from 'components/mui-extended';
 import { borderRadius, gridSpacing } from 'constants/theme';
+import { TCast, TCredits } from 'types';
 import { generateImageUrl } from 'utils/movie';
 
 const MovieCredits = ({ cast = [] }) => {
@@ -60,21 +59,6 @@ const Card = ({ ...props }) => (
 
 export default MovieCredits;
 
-MovieCredits.propTypes = {
-  cast: PropTypes.array,
-};
+MovieCredits.propTypes = TCredits;
 
-Card.propTypes = {
-  adult: PropTypes.bool,
-  gender: PropTypes.number,
-  id: PropTypes.number,
-  known_for_department: PropTypes.string,
-  name: PropTypes.string,
-  original_name: PropTypes.string,
-  popularity: PropTypes.number,
-  profile_path: PropTypes.string,
-  cast_id: PropTypes.number,
-  character: PropTypes.string,
-  credit_id: PropTypes.string,
-  order: PropTypes.number,
-};
+Card.propTypes = TCast;

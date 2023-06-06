@@ -1,9 +1,6 @@
-import PropTypes from 'prop-types';
-
-// eslint-disable-next-line import/prefer-default-export
-export const TMovie = PropTypes.shape({
-  adult: PropTypes.bool,
-  backdrop_path: PropTypes.string,
-  belongs_to_collection: PropTypes.object,
-  budget: PropTypes.number,
-});
+export * from './collections';
+export * from './companies';
+export * from './configuration';
+export * from './genres';
+export * from './movies';
+export * from './credits';

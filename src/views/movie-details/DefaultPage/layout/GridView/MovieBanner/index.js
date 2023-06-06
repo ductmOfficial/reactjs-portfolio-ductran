@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 import { alpha } from '@mui/material/styles';
 
 // third-party
-import dayjs from 'dayjs';
 import { IconPlayerPlay, IconPlus, IconThumbUp } from '@tabler/icons';
+import dayjs from 'dayjs';
 
 // project imports
+import { TMovieDetails } from 'types';
 import { generateImageUrl } from 'utils/movie';
 
 const MovieBanner = ({ ...props }) => (
@@ -107,15 +108,7 @@ const Label = ({ children, ...props }) => {
 
 export default MovieBanner;
 
-MovieBanner.propTypes = {
-  backdrop_path: PropTypes.string,
-  overview: PropTypes.string,
-  poster_path: PropTypes.string,
-  release_date: PropTypes.string,
-  runtime: PropTypes.number,
-  title: PropTypes.string,
-  vote_average: PropTypes.number,
-};
+MovieBanner.propTypes = TMovieDetails;
 
 Label.propTypes = {
   children: PropTypes.node,

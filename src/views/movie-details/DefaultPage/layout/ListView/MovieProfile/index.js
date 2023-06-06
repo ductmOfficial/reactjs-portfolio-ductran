@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 
 // project imports
+import { TMovieDetails } from 'types';
 import { MovieInfo, MoviePhotos } from '../../../components';
 import { MovieCollection } from '../../../container';
 
@@ -50,5 +51,5 @@ const MovieProfile = ({ movie }) => {
 export default MovieProfile;
 
 MovieProfile.propTypes = {
-  movie: PropTypes.object,
+  movie: PropTypes.shape(TMovieDetails),
 };

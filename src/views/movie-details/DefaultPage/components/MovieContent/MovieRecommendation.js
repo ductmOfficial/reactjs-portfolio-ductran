@@ -2,18 +2,18 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // material-ui
+import { useMediaQuery } from '@mui/material';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { styled, useTheme } from '@mui/material/styles';
-import { useMediaQuery } from '@mui/material';
 
 // third-party
 import chunk from 'lodash/chunk';
 
 // project imports
 import MainCard from 'components/MainCard';
-import TypographyTruncator from 'components/TypographyTruncator';
+import { TypographyTruncator } from 'components/shared';
 import { generateImageUrl } from 'utils/movie';
 
 const PAGING_PER_PAGE = 10;

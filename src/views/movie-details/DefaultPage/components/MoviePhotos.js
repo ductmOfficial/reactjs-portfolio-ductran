@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
-
 // material-ui
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
 // project imports
+import { TMovieImages } from 'types';
 import { generateImageUrl } from 'utils/movie';
 
 const MoviePhotos = ({ backdrops = [], posters = [] }) => {
@@ -32,18 +31,4 @@ const MoviePhotos = ({ backdrops = [], posters = [] }) => {
 
 export default MoviePhotos;
 
-MoviePhotos.propTypes = {
-  backdrops: PropTypes.arrayOf(
-    PropTypes.shape({
-      aspect_ratio: PropTypes.number,
-      height: PropTypes.number,
-      iso_639_1: PropTypes.string,
-      file_path: PropTypes.string,
-      vote_average: PropTypes.number,
-      vote_count: PropTypes.number,
-      width: PropTypes.number,
-    })
-  ),
-  posters: PropTypes.array,
-  // logos: PropTypes.array,
-};
+MoviePhotos.propTypes = TMovieImages;

@@ -7,7 +7,8 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
 // project imports
-import StyledAvatar from 'components/extended/Avatar';
+import { StyledAvatar } from 'components/mui-extended';
+import { TCollectionDetails } from 'types';
 import { generateImageUrl } from 'utils/movie';
 
 const MovieCollection = ({ parts = [], onGetParts, ...props }) => {
@@ -70,28 +71,6 @@ const MediaBody = styled((props) => <Box flex="1 1" {...props} />)(() => ({}));
 export default MovieCollection;
 
 MovieCollection.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
-  poster_path: PropTypes.string,
-  backdrop_path: PropTypes.string,
-  parts: PropTypes.arrayOf(
-    PropTypes.shape({
-      adult: PropTypes.bool,
-      backdrop_path: PropTypes.string,
-      id: PropTypes.number,
-      title: PropTypes.string,
-      original_language: PropTypes.string,
-      original_title: PropTypes.string,
-      overview: PropTypes.string,
-      poster_path: PropTypes.string,
-      media_type: PropTypes.oneOf(['movie', 'tv']),
-      genre_ids: PropTypes.arrayOf(PropTypes.number),
-      popularity: PropTypes.number,
-      release_date: PropTypes.string,
-      video: PropTypes.bool,
-      vote_average: PropTypes.number,
-      vote_count: PropTypes.number,
-    })
-  ),
+  ...TCollectionDetails,
   onGetParts: PropTypes.func,
 };

@@ -11,6 +11,7 @@ import { IconFlame, IconHistory, IconStar, IconTrendingUp } from '@tabler/icons'
 
 // project imports
 import { borderRadius } from 'constants/theme';
+import { TMovieDetails } from 'types';
 import { formatNumber } from 'utils/number';
 
 const MovieMetadata = ({ ...props }) => {
@@ -73,14 +74,7 @@ const Statistic = ({ icon, primary, secondary }) => (
 
 export default MovieMetadata;
 
-MovieMetadata.propTypes = {
-  budget: PropTypes.number,
-  revenue: PropTypes.number,
-  runtime: PropTypes.number,
-  vote_average: PropTypes.number,
-  vote_count: PropTypes.number,
-  popularity: PropTypes.number,
-};
+MovieMetadata.propTypes = TMovieDetails;
 
 Statistic.propTypes = {
   primary: PropTypes.string.isRequired,
