@@ -6,6 +6,7 @@ import MainLayout from 'layout/MainLayout';
 import AuthGuard from './AuthGuard';
 
 const Homepage = Loadable(lazy(() => import('views/homepage')));
+const English = Loadable(lazy(() => import('views/english')));
 const Movies = Loadable(lazy(() => import('views/movies')));
 const MovieDetails = {
   Index: Loadable(lazy(() => import('views/movie-details'))),
@@ -73,6 +74,10 @@ const MainRoutes = {
     {
       path: 'watchlist',
       element: <Movies />,
+    },
+    {
+      path: 'english',
+      element: <English />,
     },
     {
       path: '*',
