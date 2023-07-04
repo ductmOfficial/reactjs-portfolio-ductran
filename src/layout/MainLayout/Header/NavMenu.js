@@ -15,7 +15,7 @@ const NavButton = styled(Button)(() => ({
 }));
 
 const pages = [
-  { title: 'Home', path: '/home' },
+  { title: 'Home', path: '/' },
   { title: 'Feeds', path: '/feeds' },
   { title: 'TV Shows', path: '/tv-shows' },
   { title: 'Movies', path: '/movies' },

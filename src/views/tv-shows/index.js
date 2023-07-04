@@ -5,12 +5,12 @@ import Container from '@mui/material/Container';
 // project imports
 import { Jumbotron } from 'components/shared';
 
-const Homepage = () => (
+const TvShows = () => (
   <Box component="section" sx={{ py: 2 }}>
     <Container>
-      <Jumbotron title="Homepage" />
+      <Jumbotron title="TV Shows" />
     </Container>
   </Box>
 );
 
-export default Homepage;
+export default TvShows;

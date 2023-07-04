@@ -9,9 +9,9 @@ const Logo = () => (
   <Box sx={{ display: 'flex', alignItems: 'center', color: 'primary.main' }}>
     <IconCast size="2.5rem" style={{ marginRight: '10px' }} />
     <Typography
-      variant="h1"
       noWrap
       sx={{
+        fontSize: '35px',
         display: { xs: 'none', sm: 'inline-block' },
         fontFamily: 'monospace',
         fontWeight: 900,
@@ -23,9 +23,9 @@ const Logo = () => (
       D.MOVIEs
     </Typography>
     <Typography
-      variant="h1"
       noWrap
       sx={{
+        fontSize: '35px',
         display: { xs: 'inline-block', sm: 'none' },
         fontFamily: 'monospace',
         fontWeight: 900,

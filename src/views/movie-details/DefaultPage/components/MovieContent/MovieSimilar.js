@@ -2,26 +2,22 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 // material-ui
-import { useMediaQuery } from '@mui/material';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import { styled, useTheme } from '@mui/material/styles';
 
 // third-party
 import chunk from 'lodash/chunk';
 
 // project imports
 import MainCard from 'components/MainCard';
-import { TypographyTruncator } from 'components/shared';
-import { generateImageUrl } from 'utils/movie';
+import MediaCard from 'components/media';
+import { MediaObject } from 'components/shared';
 
 const PAGING_PER_PAGE = 3;
 const PAGING_SIZE_INIT = 0;
 
 const MovieSimilar = ({ movies = [] }) => {
-  const theme = useTheme();
-  const matchUpSm = useMediaQuery(theme.breakpoints.up('sm'));
   const group = chunk(movies, PAGING_PER_PAGE);
   const [size, setSize] = useState(PAGING_SIZE_INIT);
   const [shownMovies, setShownMovies] = useState(group[PAGING_SIZE_INIT]);
@@ -40,18 +36,7 @@ const MovieSimilar = ({ movies = [] }) => {
     <MainCard title="Similar Movies">
       <MediaObject dividers>
         {shownMovies.map((movie, index) => (
-          <Media key={index}>
-            <MediaImage width={{ xs: 150, sm: 200 }}>
-              <Box component="img" src={generateImageUrl('backdrop', movie.backdrop_path)} sx={{ maxWidth: 1 }} />
-            </MediaImage>
-            <MediaBody>
-              <Typography variant="h5" sx={{ color: 'success.main' }}>
-                {`${(movie.vote_average * 10).toFixed(0)}%`} User Score
-              </Typography>
-              <Typography variant={matchUpSm ? 'h3' : 'h5'}>{movie.title}</Typography>
-              <TypographyTruncator content={movie.overview} options={{ length: matchUpSm ? 300 : 100 }} />
-            </MediaBody>
-          </Media>
+          <MediaCard key={`${movie.id}.${index}`} {...movie} />
         ))}
 
         {movies.length > PAGING_PER_PAGE && (
@@ -71,23 +56,6 @@ const MovieSimilar = ({ movies = [] }) => {
     </MainCard>
   );
 };
-
-const MediaObject = styled(({ dividers, ...props }) => (
-  <Box
-    display="flex"
-    flexDirection="column"
-    {...props}
-    sx={{
-      '> div': { pb: 1, mb: 1 },
-      '> div:last-child': { pb: 0, mb: 0 },
-      ...(dividers && { '> div:not(:last-child)': { borderBottom: ({ palette }) => `1px solid ${palette.divider}` } }),
-      ...props.sx,
-    }}
-  />
-))(() => ({}));
-const Media = styled((props) => <Box display="flex" flexDirection="row" gap={1} {...props} />)(() => ({}));
-const MediaImage = styled((props) => <Box flex="0 0 auto" width="30%" {...props} />)(() => ({}));
-const MediaBody = styled((props) => <Box flex="1 1" {...props} />)(() => ({}));
 
 export default MovieSimilar;
 
