@@ -38,7 +38,7 @@ const MovieBanner = ({ ...props }) => (
             <Typography variant="h4" sx={{ color: 'success.main' }}>
               {`${(props.vote_average * 10).toFixed(0)}%`} User Score
             </Typography>
-            <Typography variant="h1" color="inherit" sx={{ fontSize: '3.5rem', fontWeight: 'normal' }}>
+            <Typography variant="h1" color="inherit" sx={{ fontWeight: 'normal' }}>
               {props.title}
             </Typography>
 
@@ -96,7 +96,6 @@ const Label = ({ children, ...props }) => {
       sx={{
         borderColor,
         border: '1px solid',
-        fontSize: '0.75rem',
         p: (theme) => theme.spacing(0.25, 0.5),
         ...props.sx,
       }}

@@ -26,7 +26,7 @@ const MainCard = forwardRef(({ title, footer, titleProps, contentProps, children
       {/* Card Header */}
       {shouldRenderHeader && (
         <Box px={gridSpacing()} pt={gridSpacing() * GRID_RATIO}>
-          <Typography variant="h3" {...titleProps}>
+          <Typography variant="h6" {...titleProps}>
             {title}
           </Typography>
         </Box>

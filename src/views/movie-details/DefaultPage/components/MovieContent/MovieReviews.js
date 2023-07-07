@@ -19,6 +19,7 @@ import { ResponsivePlayer } from 'components/extended';
 import { TEMP_IMAGE_AVATAR } from 'constants/temp';
 import { borderRadius } from 'constants/theme';
 import { generateImageUrl } from 'utils/movie';
+import { CommentCard } from 'components/comment';
 
 const MovieReviews = ({ video, reviews = [] }) => (
   <MainCard>
@@ -50,7 +51,7 @@ const CommentContainer = ({ comments = [] }) => {
       <CommentEditor />
       <CommentList>
         {displayComments.map((comment) => (
-          <CommentListItem key={comment.id} {...comment} />
+          <CommentCard key={comment.id} {...comment} />
         ))}
       </CommentList>
 

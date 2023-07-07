@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 // material-ui
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
@@ -10,9 +13,8 @@ import Typography from '@mui/material/Typography';
 import chunk from 'lodash/chunk';
 
 // project imports
-import MainCard from 'components/MainCard';
-import MediaCard from 'components/media';
-import { MediaObject } from 'components/shared';
+import { Divider, List, ListItem } from '@mui/material';
+import { MediaCard } from 'components/media';
 
 const PAGING_PER_PAGE = 3;
 const PAGING_SIZE_INIT = 0;
@@ -33,12 +35,19 @@ const MovieSimilar = ({ movies = [] }) => {
   if (!movies || !movies.length) return null;
 
   return (
-    <MainCard title="Similar Movies">
-      <MediaObject dividers>
-        {shownMovies.map((movie, index) => (
-          <MediaCard key={`${movie.id}.${index}`} {...movie} />
-        ))}
-
+    <Card elevation={0} sx={{ borderRadius: { xs: 0, lg: 1 } }}>
+      <CardHeader title="Similar Movies" titleTypographyProps={{ variant: 'h6' }} />
+      <CardContent sx={{ pt: 0 }}>
+        <List disablePadding>
+          {shownMovies.map((movie, index, list) => (
+            <React.Fragment key={`${movie.id}.${index}`}>
+              <ListItem disableGutters>
+                <MediaCard {...movie} />
+              </ListItem>
+              {index !== list.length - 1 && <Divider />}
+            </React.Fragment>
+          ))}
+        </List>
         {movies.length > PAGING_PER_PAGE && (
           <Box display="flex">
             {shownMovies.length < movies.length && (
@@ -47,13 +56,13 @@ const MovieSimilar = ({ movies = [] }) => {
               </Link>
             )}
             <Box flexGrow={1} />
-            <Typography sx={{ color: 'text.secondary' }}>
+            <Typography color="text.secondary">
               {shownMovies.length} of {movies.length}
             </Typography>
           </Box>
         )}
-      </MediaObject>
-    </MainCard>
+      </CardContent>
+    </Card>
   );
 };
 

@@ -35,7 +35,7 @@ const MovieBanner = ({ ...props }) => (
       <Box sx={{ display: 'flex', gap: 2, color: 'common.white' }}>
         <Container maxWidth="xl">
           <Box width={{ xs: 1, sm: '85%', lg: '50%' }}>
-            <Typography variant="h1" color="inherit" sx={{ fontSize: '3.5rem', fontWeight: 'normal' }}>
+            <Typography variant="h1" color="inherit" sx={{ fontWeight: 'normal' }}>
               {props.title}
             </Typography>
 
@@ -96,7 +96,6 @@ const Label = ({ children, ...props }) => {
       sx={{
         borderColor,
         border: '1px solid',
-        fontSize: '0.75rem',
         p: (theme) => theme.spacing(0.25, 0.5),
         ...props.sx,
       }}

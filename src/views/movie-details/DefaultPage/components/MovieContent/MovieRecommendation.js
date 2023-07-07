@@ -11,7 +11,7 @@ import chunk from 'lodash/chunk';
 
 // project imports
 import MainCard from 'components/MainCard';
-import MediaCard from 'components/media';
+import { MediaCard } from 'components/media';
 import { MediaObject } from 'components/shared';
 
 const PAGING_PER_PAGE = 10;

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 export const generateImageUrl = (type = 'poster', path, query) => {
-  if (!path) return null;
+  if (!path) return undefined;
 
   const baseUrl = {
     poster: 'https://www.themoviedb.org/t/p/w440_and_h660_face',

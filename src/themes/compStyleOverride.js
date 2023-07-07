@@ -5,7 +5,10 @@ export default function componentStyleOverrides(palette) {
         :root {
           --text-primary: ${palette.text.primary};
           --text-secondary: ${palette.text.secondary};
-        }
+        },
+        html {
+          font-size: 16px;
+        },
         a {
           color: 'var(--text-primary)'
         }
@@ -16,6 +19,16 @@ export default function componentStyleOverrides(palette) {
         root: {
           textTransform: 'unset',
           boxShadow: 'unset',
+        },
+      },
+    },
+    MuiCardContent: {
+      styleOverrides: {
+        root: {
+          padding: '16px',
+          '&:last-child': {
+            paddingBottom: '16px',
+          },
         },
       },
     },

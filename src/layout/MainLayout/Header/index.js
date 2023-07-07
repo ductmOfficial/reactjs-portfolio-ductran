@@ -32,9 +32,7 @@ const Header = ({ onSearchOpen }) => {
         <Toolbar>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex' } }}>
             <LogoSection />
-            <Box sx={{ ml: 3, display: { xs: 'none', lg: 'block' } }}>
-              <NavMenu />
-            </Box>
+            <NavMenu sx={{ ml: 3, display: { xs: 'none', lg: 'flex' } }} />
           </Box>
 
           <Box sx={{ flexGrow: 0, display: 'flex', gap: 1.5 }}>

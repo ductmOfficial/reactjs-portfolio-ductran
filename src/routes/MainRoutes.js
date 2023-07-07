@@ -18,6 +18,7 @@ const MovieDetails = {
   DefaultPage: Loadable(lazy(() => import('views/movie-details/DefaultPage'))),
 };
 
+const StyleGuide = Loadable(lazy(() => import('views/style-guide')));
 const NotFound = Loadable(lazy(() => import('views/errors/NotFound')));
 
 const MainRoutes = {
@@ -60,6 +61,10 @@ const MainRoutes = {
     {
       path: 'watchlist',
       element: <Watchlist />,
+    },
+    {
+      path: 'style-guide',
+      element: <StyleGuide />,
     },
     {
       path: 'english',

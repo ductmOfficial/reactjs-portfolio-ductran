@@ -23,8 +23,8 @@ const pages = [
   { title: 'Watch', path: '/watch' },
 ];
 
-const NavMenu = () => (
-  <Stack direction="row" spacing={1}>
+const NavMenu = ({ ...props }) => (
+  <Stack direction="row" spacing={1} alignItems="center" {...props}>
     {pages.map(({ title, path }) => (
       <NavButton key={path} component={NavLink} to={path}>
         {title}

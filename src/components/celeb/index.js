@@ -1,2 +1,2 @@
 // eslint-disable-next-line import/prefer-default-export
-export { default as MediaCard } from './MediaCard';
+export { default as CelebCard } from './CelebCard';
