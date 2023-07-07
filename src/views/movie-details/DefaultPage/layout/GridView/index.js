@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import { gridSpacing } from 'constants/theme';
 import { TMovieDetails } from 'types';
 import { MovieContent, MovieCredits, MovieMetadata } from '../../components';
-import MovieBanner from './MovieBanner';
+import MovieHero from './MovieHero';
 import MovieCollection from './MovieCollection';
 import MovieInfo from './MovieInfo';
 import MoviePhotos from './MoviePhotos';
@@ -19,7 +19,7 @@ const GridView = ({ loading, movie }) => {
 
   return (
     <Box>
-      <MovieBanner {...movie} />
+      <MovieHero {...movie} />
       <Container maxWidth="xl">
         <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2} sx={{ mt: 2 }}>
           <Box gridColumn="span 4">

@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 
 // project imports
 import { MovieContent, MovieCredits } from '../../components';
-import MovieBanner from './MovieBanner';
+import MovieHero from './MovieHero';
 import MovieMetadata from './MovieMetadata';
 import MovieProfile from './MovieProfile';
 
@@ -14,7 +14,7 @@ const ListView = ({ loading, movie }) => {
 
   return (
     <Stack spacing={{ xs: 1, sm: 2 }}>
-      <MovieBanner {...movie} />
+      <MovieHero {...movie} />
       <MovieMetadata {...movie} />
       <MovieProfile movie={movie} />
       <MovieCredits {...movie.credits} />
