@@ -7,7 +7,7 @@ import { Jumbotron } from 'components/shared';
 
 const Watchlist = () => (
   <Box component="section" sx={{ py: 2 }}>
-    <Container>
+    <Container maxWidth="xl">
       <Jumbotron title="Watchlist" />
     </Container>
   </Box>

@@ -7,7 +7,7 @@ import { Jumbotron } from 'components/shared';
 
 const Celebs = () => (
   <Box component="section" sx={{ py: 2 }}>
-    <Container>
+    <Container maxWidth="xl">
       <Jumbotron title="Celebs" />
     </Container>
   </Box>

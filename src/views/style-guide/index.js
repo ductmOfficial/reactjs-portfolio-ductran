@@ -48,7 +48,7 @@ const sentences =
 
 const StyleGuide = () => (
   <Box component="section" sx={{ py: 2 }}>
-    <Container>
+    <Container maxWidth="xl">
       <Jumbotron title="Style Guide" />
       <Paper elevation={0} sx={{ p: 4, mt: 2 }}>
         <Stack spacing={2}>
