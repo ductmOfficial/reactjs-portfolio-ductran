@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 // material-ui
 import Button from '@mui/material/Button';
@@ -15,18 +15,16 @@ const NavButton = styled(Button)(() => ({
 }));
 
 const pages = [
-  { title: 'Home', path: '/' },
-  { title: 'Feeds', path: '/feeds' },
-  { title: 'TV Shows', path: '/tv-shows' },
-  { title: 'Movies', path: '/movies' },
-  { title: 'Celebs', path: '/celebs' },
-  { title: 'Watch', path: '/watch' },
+  { title: 'About me', path: '#about-me' },
+  { title: 'Education', path: '#education' },
+  { title: 'Experiences & Skills', path: '#experiences-skills' },
+  { title: 'Contact', path: '#get-in-touch' },
 ];
 
-const NavMenu = ({ ...props }) => (
+const NavMenu = (props) => (
   <Stack direction="row" spacing={1} alignItems="center" {...props}>
     {pages.map(({ title, path }) => (
-      <NavButton key={path} component={NavLink} to={path}>
+      <NavButton key={path} component={HashLink} to={path} smoot>
         {title}
       </NavButton>
     ))}

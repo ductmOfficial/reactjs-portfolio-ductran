@@ -32,10 +32,10 @@ const Header = ({ onSearchOpen }) => {
         <Toolbar>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex' } }}>
             <LogoSection />
-            <NavMenu sx={{ ml: 3, display: { xs: 'none', lg: 'flex' } }} />
           </Box>
 
           <Box sx={{ flexGrow: 0, display: 'flex', gap: 1.5 }}>
+            <NavMenu sx={{ ml: 3, display: { xs: 'none', lg: 'flex' } }} />
             <StyledIconButton color="inherit" aria-label="search" onClick={onSearchOpen}>
               <IconSearch />
             </StyledIconButton>

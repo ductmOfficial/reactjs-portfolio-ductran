@@ -7,7 +7,7 @@ const MainContent = styled('main', { shouldForwardProp: (prop) => prop })(({ the
   minHeight: 'calc(100vh - 85px)',
   backgroundColor: theme.palette.background.default,
   marginTop: '65px',
-  paddingBottom: theme.spacing(10),
+  // paddingBottom: theme.spacing(10),
 
   [theme.breakpoints.up('xs')]: {
     marginTop: '65px',

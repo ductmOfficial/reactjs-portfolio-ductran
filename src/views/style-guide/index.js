@@ -47,7 +47,7 @@ const sentences =
   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.';
 
 const StyleGuide = () => (
-  <Box component="section" sx={{ py: 2 }}>
+  <Box component="section" sx={{ py: 1 }}>
     <Container maxWidth="xl">
       <Jumbotron title="Style Guide" />
       <Paper elevation={0} sx={{ p: 4, mt: 2 }}>

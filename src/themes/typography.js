@@ -5,7 +5,7 @@
 
 const FONT_FAMILY_BASE = `'Roboto', sans-serif`;
 const FONT_FAMILY_HEAD = `'Roboto', sans-serif`;
-const FONT_SCALE = 1.05;
+const FONT_SCALE = 1.5;
 const FONT_SIZE_BASE = 16;
 const FONT_WEIGHT_REGULAR = 400;
 const FONT_WEIGHT_MEDIUM = 500;
