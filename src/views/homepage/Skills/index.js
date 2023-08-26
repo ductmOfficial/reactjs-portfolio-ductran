@@ -13,7 +13,7 @@ const skills = [
   { id: 1, title: 'ISTQB Foundation' },
   { id: 2, title: 'Restful API Testing' },
   { id: 3, title: 'SQL Foundation' },
-  { id: 4, title: 'SQL Foundation' },
+  { id: 4, title: 'Jira management' },
   { id: 5, title: 'SQL Foundation' },
   { id: 6, title: 'SQL Foundation' },
   { id: 7, title: 'SQL Foundation' },
