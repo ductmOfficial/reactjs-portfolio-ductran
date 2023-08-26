@@ -20,7 +20,7 @@ const Hero = () => (
           <Box maxWidth={720}>
             <Typography color="text.secondary">Hi, my name is</Typography>
             <Typography variant="h1" color="primary.main" fontWeight={600}>
-              Douglas Tran
+              Khue Nguyen
             </Typography>
             <Typography variant="h1" color="text.secondary" fontWeight={300}>
               I guarantee the quality for web

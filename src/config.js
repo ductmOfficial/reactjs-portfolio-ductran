@@ -6,7 +6,7 @@ const config = {
   fontFamily: `'Roboto', sans-serif`,
   borderRadius: 4,
   seo: {
-    siteName: 'D.Movies',
+    siteName: 'callmekathy.',
     description: '',
   },
   apiKey: '4fb6229be9422aa0c9ada530de02a45d',

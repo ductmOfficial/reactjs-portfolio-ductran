@@ -25,7 +25,7 @@ const Logo = () => (
           fontWeight: 'inherit',
         }}
       >
-        douglas
+        kathy
       </Typography>
       .
     </Typography>
