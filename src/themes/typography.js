@@ -92,5 +92,42 @@ export default function themeTypography(palette) {
       fontWeight: FONT_WEIGHT_REGULAR,
       fontSize: pxToRem(FONT_SIZE_BASE - 4),
     },
+    display1: {
+      fontSize: '5rem',
+      fontWeight: 300,
+      lineHeight: 1.3,
+    },
+    display2: {
+      fontSize: '3.5rem',
+      fontWeight: 300,
+      lineHeight: 1.3,
+    },
+    display3: {
+      fontSize: '2.5rem',
+      fontWeight: 300,
+      lineHeight: 1.3,
+    },
+    display4: {
+      fontSize: '1.875rem',
+      fontWeight: 300,
+      lineHeight: 1.3,
+    },
+    lead: {
+      fontSize: `clamp(${pxToRem(FONT_SIZE_BASE)}, 2.5vw, 1.25rem)`,
+      fontWeight: 300,
+      lineHeight: 1.6,
+    },
+    largeHeading: {
+      fontSize: 'clamp(40px, 8vw, 80px)',
+      lineHeight: 1.1,
+    },
+    mediumHeading: {
+      fontSize: 'clamp(40px, 8vw, 60px)',
+      lineHeight: 1.1,
+    },
+    numberedHeading: {
+      fontSize: 'clamp(26px, 5vw, 38px)',
+      lineHeight: 1.1,
+    },
   };
 }

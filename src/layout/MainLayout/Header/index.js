@@ -1,15 +1,12 @@
-import PropTypes from 'prop-types';
-
 // material-ui
 import AppBar from '@mui/material/AppBar';
-import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
-import { alpha, styled } from '@mui/material/styles';
 
 // third-party
-import { IconBellRinging, IconBrightnessDown, IconSearch } from '@tabler/icons';
+import { IconBellRinging, IconBrightnessDown } from '@tabler/icons';
+import { IconPhoneCall } from '@tabler/icons-react';
 
 // project imports
 import HideOnScroll from 'components/HideOnScroll';
@@ -17,7 +14,7 @@ import { useUI } from 'context/uiContext';
 import LogoSection from './LogoSection';
 import NavMenu from './NavMenu';
 
-const Header = ({ onSearchOpen }) => {
+const Header = () => {
   const { isDarkMode, onModeToggle } = useUI();
 
   return (
@@ -36,17 +33,15 @@ const Header = ({ onSearchOpen }) => {
 
           <Box sx={{ flexGrow: 0, display: 'flex', gap: 1.5 }}>
             <NavMenu sx={{ ml: 3, display: { xs: 'none', lg: 'flex' } }} />
-            <StyledIconButton color="inherit" aria-label="search" onClick={onSearchOpen}>
-              <IconSearch />
-            </StyledIconButton>
-            <StyledIconButton color="inherit" aria-label="dark-mode" onClick={onModeToggle}>
+            <IconButton color="inherit" aria-label="search" sx={{ bgcolor: 'background.default' }}>
+              <IconPhoneCall stroke={1.5} size="1.3rem" />
+            </IconButton>
+            <IconButton color="inherit" aria-label="dark-mode" onClick={onModeToggle} sx={{ bgcolor: 'background.default' }}>
               <IconBrightnessDown />
-            </StyledIconButton>
-            <StyledIconButton color="inherit" aria-label="show 17 new notifications">
-              <Badge badgeContent={17} color="error">
-                <IconBellRinging />
-              </Badge>
-            </StyledIconButton>
+            </IconButton>
+            <IconButton color="inherit" aria-label="show 17 new notifications" sx={{ bgcolor: 'background.default' }}>
+              <IconBellRinging />
+            </IconButton>
           </Box>
         </Toolbar>
       </AppBar>
@@ -54,12 +49,4 @@ const Header = ({ onSearchOpen }) => {
   );
 };
 
-const StyledIconButton = styled((props) => (
-  <IconButton {...props} sx={{ bgcolor: ({ palette }) => alpha(palette.grey[300], 0.35), ...props.sx }} />
-))(() => ({}));
-
 export default Header;
-
-Header.propTypes = {
-  onSearchOpen: PropTypes.func,
-};

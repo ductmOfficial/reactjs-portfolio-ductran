@@ -9,7 +9,7 @@ import Hero from './Hero';
 import Skills from './Skills';
 
 const Homepage = () => (
-  <Box component="article" sx={{ py: 1 }}>
+  <Box component="article">
     <Hero />
     <AboutMe />
     <Education />
