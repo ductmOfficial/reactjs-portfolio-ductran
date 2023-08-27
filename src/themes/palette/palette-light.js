@@ -10,7 +10,7 @@ export default {
     black: '#000000',
     white: '#ffffff',
   },
-  primary: generatePaletteColor('#4f47a7'),
+  primary: generatePaletteColor('#e37bbc'),
   secondary: generatePaletteColor('#F7A400', '#3a9efd'),
   error: generatePaletteColor('#d32f2f'),
   warning: generatePaletteColor('#ed6c02'),
