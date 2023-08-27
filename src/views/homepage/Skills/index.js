@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { IconDiscountCheck } from '@tabler/icons-react';
 
 const skills = [
-  { id: 0, title: 'Fluent English communication' },
+  { id: 0, title: 'Fluent English' },
   { id: 1, title: 'ISTQB Foundation' },
   { id: 2, title: 'Restful API Testing' },
   { id: 3, title: 'SQL Foundation' },
