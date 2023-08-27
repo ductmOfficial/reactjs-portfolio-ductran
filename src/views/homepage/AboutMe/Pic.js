@@ -1,4 +1,4 @@
-import { styled } from '@mui/material/styles';
+import { styled, alpha } from '@mui/material/styles';
 
 export default styled('div')(({ theme }) => ({
   position: 'relative',
@@ -14,7 +14,7 @@ export default styled('div')(({ theme }) => ({
     position: 'relative',
     width: '100%',
     borderRadius: '10px',
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: alpha(theme.palette.primary.main, 0.5),
 
     '.img': {
       display: 'block',
