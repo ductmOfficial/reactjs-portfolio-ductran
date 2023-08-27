@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 // third-party
-import { IconDiscountCheck } from '@tabler/icons-react';
+import { IconAwardFilled } from '@tabler/icons-react';
 
 const skills = [
   { id: 0, title: 'Fluent English' },
@@ -15,9 +15,6 @@ const skills = [
   { id: 2, title: 'Restful API Testing' },
   { id: 3, title: 'SQL Foundation' },
   { id: 4, title: 'Jira management' },
-  { id: 5, title: 'SQL Foundation' },
-  { id: 6, title: 'SQL Foundation' },
-  { id: 7, title: 'SQL Foundation' },
 ];
 
 const Skills = () => (
@@ -51,7 +48,7 @@ const SkillCard = (props) => {
   return (
     <Card elevation={0} sx={{ display: 'flex', alignItems: 'center', height: 1, bgcolor: 'background.paper' }}>
       <Box color="primary.main" py={2} pl={2}>
-        <IconDiscountCheck stroke={1} size="3.5rem" />
+        <IconAwardFilled stroke={1} size="3.5rem" />
       </Box>
       <CardContent sx={{ flex: 1 }}>
         <Typography variant="h3">{item.title}</Typography>

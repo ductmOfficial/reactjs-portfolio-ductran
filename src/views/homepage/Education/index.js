@@ -18,7 +18,7 @@ const education = [
 const Education = () => (
   <Box component="section" id="education" sx={{ py: 8, bgcolor: 'background.paper' }}>
     <Container maxWidth="xl">
-      <Box maxWidth={720} margin="0 auto" textAlign="center" mb={2}>
+      <Box maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
         <Typography variant="numberedHeading" component="h2" gutterBottom>
           My Education
         </Typography>

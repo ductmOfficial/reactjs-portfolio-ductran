@@ -24,7 +24,7 @@ const pages = [
 const NavMenu = (props) => (
   <Stack direction="row" spacing={1} alignItems="center" {...props}>
     {pages.map(({ title, path }) => (
-      <NavButton key={path} component={HashLink} to={path} smoot>
+      <NavButton key={path} component={HashLink} to={path} smoot="true">
         {title}
       </NavButton>
     ))}
