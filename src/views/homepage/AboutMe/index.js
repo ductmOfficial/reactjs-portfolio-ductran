@@ -14,8 +14,11 @@ import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandSkyp
 import config from 'config';
 import Pic from './Pic';
 
-const avatarJPG =
-  'https://scontent.fsgn12-1.fna.fbcdn.net/v/t39.30808-6/270119985_2109344799219883_8385049583524957214_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Nfr-rbqmBqEAX9VNNfJ&_nc_ht=scontent.fsgn12-1.fna&oh=00_AfAVlmPWdXPbaYuWbZpUcgOg2wAhbXnn_n2bHrjyiyAIWA&oe=64EF81A3';
+// assets
+import ImageAvatar from 'assets/images/avatar.jpg';
+
+// const avatarJPG =
+// 'https://scontent.fsgn12-1.fna.fbcdn.net/v/t39.30808-6/270119985_2109344799219883_8385049583524957214_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Nfr-rbqmBqEAX9VNNfJ&_nc_ht=scontent.fsgn12-1.fna&oh=00_AfAVlmPWdXPbaYuWbZpUcgOg2wAhbXnn_n2bHrjyiyAIWA&oe=64EF81A3';
 
 const AboutMe = () => {
   const { userProfile: profile = {} } = config;
@@ -27,7 +30,7 @@ const AboutMe = () => {
           <Box display="flex" gap={{ xs: 4, lg: 6 }} flexDirection={{ xs: 'column', lg: 'row' }}>
             <Pic>
               <div className="wrapper">
-                <img src={avatarJPG} alt="Avatar" className="img" />
+                <img src={ImageAvatar} alt="Avatar" className="img" />
               </div>
             </Pic>
             <Box flex={1}>
