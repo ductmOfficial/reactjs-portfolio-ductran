@@ -13,23 +13,13 @@ export default styled('div')(({ theme }) => ({
     display: 'block',
     position: 'relative',
     width: '100%',
-    borderRadius: '12px',
+    borderRadius: '10px',
     backgroundColor: theme.palette.primary.light,
-
-    // '&:hover, &:focus': {
-    //   background: 'transparent',
-    //   outline: 0,
-
-    //   '.img': {
-    //     filter: 'none',
-    //     mixBlendMode: 'normal',
-    //   },
-    // },
 
     '.img': {
       display: 'block',
       position: 'relative',
-      borderRadius: '12px',
+      borderRadius: '10px',
       mixBlendMode: 'multiply',
       filter: 'grayscale(100%) contrast(1)',
       transition: 'all 500 cubic-bezier(0.645, 0.045, 0.355, 1)',
@@ -37,24 +27,15 @@ export default styled('div')(({ theme }) => ({
       zIndex: 2,
     },
 
-    '&:before, &:after': {
+    '&:after': {
       content: '""',
       display: 'block',
       position: 'absolute',
       width: '100%',
       height: '100%',
-      borderRadius: '12px',
+      borderRadius: '10px',
       transition: 'all 500 cubic-bezier(0.645, 0.045, 0.355, 1)',
-    },
 
-    // '&:before': {
-    //   top: 0,
-    //   left: 0,
-    //   backgroundColor: theme.palette.primary.main,
-    //   mixBlendMode: 'screen',
-    // },
-
-    '&:after': {
       border: '3px solid',
       borderColor: theme.palette.primary.main,
       top: '20px',
