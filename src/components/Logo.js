@@ -41,7 +41,7 @@ const Logo = () => (
         // letterSpacing: '.3rem',
       }}
     >
-      douglas
+      kathy
     </Typography>
   </Box>
 );
