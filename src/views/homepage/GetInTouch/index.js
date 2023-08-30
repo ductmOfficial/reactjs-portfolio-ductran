@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 // material-ui
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -6,12 +8,18 @@ import Typography from '@mui/material/Typography';
 
 // project imports
 import config from 'config';
+import sr from 'lib/sr';
 
 const GetInTouch = () => {
-  const { userProfile: profile = {} } = config;
+  const revealContainer = useRef(null);
+  const { userProfile: profile = {}, srConfig } = config;
+
+  useEffect(() => {
+    sr.reveal(revealContainer.current, srConfig());
+  }, [srConfig]);
 
   return (
-    <Box component="section" id="get-in-touch" sx={{ bgcolor: 'background.paper', py: 8 }}>
+    <Box ref={revealContainer} component="section" id="get-in-touch" sx={{ bgcolor: 'background.paper', py: 8 }}>
       <Container maxWidth="xl">
         <Box maxWidth={720} margin="0 auto" textAlign="center">
           <Typography variant="numberedHeading" component="h2" gutterBottom>

@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 // material-ui
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -12,6 +14,7 @@ import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandSkyp
 
 // project imports
 import config from 'config';
+import sr from 'lib/sr';
 import Pic from './Pic';
 
 // assets
@@ -21,10 +24,15 @@ import ImageAvatar from 'assets/images/avatar.jpg';
 // 'https://scontent.fsgn12-1.fna.fbcdn.net/v/t39.30808-6/270119985_2109344799219883_8385049583524957214_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Nfr-rbqmBqEAX9VNNfJ&_nc_ht=scontent.fsgn12-1.fna&oh=00_AfAVlmPWdXPbaYuWbZpUcgOg2wAhbXnn_n2bHrjyiyAIWA&oe=64EF81A3';
 
 const AboutMe = () => {
-  const { userProfile: profile = {} } = config;
+  const revealContainer = useRef(null);
+  const { userProfile: profile = {}, srConfig } = config;
+
+  useEffect(() => {
+    sr.reveal(revealContainer.current, srConfig());
+  }, [srConfig]);
 
   return (
-    <Box component="section" id="about-me" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box ref={revealContainer} component="section" id="about-me" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
         <Box maxWidth={1000} margin="0 auto">
           <Box display="flex" gap={{ xs: 4, lg: 6 }} flexDirection={{ xs: 'column', lg: 'row' }}>
