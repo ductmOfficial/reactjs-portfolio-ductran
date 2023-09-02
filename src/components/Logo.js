@@ -9,14 +9,11 @@ const Logo = () => (
       sx={{
         fontSize: '38px',
         fontWeight: 'bold',
-        color: 'text.primary',
+        color: 'text.secondary',
         textDecoration: 'none',
-        display: { xs: 'none', sm: 'inline-block' },
-        // fontFamily: 'monospace',
-        // letterSpacing: '.3rem',
       }}
     >
-      callme
+      iam
       <Typography
         component="span"
         color="primary.main"
@@ -25,23 +22,9 @@ const Logo = () => (
           fontWeight: 'inherit',
         }}
       >
-        kathy
+        duc
       </Typography>
       .
-    </Typography>
-    <Typography
-      noWrap
-      sx={{
-        fontSize: '38px',
-        fontWeight: 'bold',
-        color: 'inherit',
-        textDecoration: 'none',
-        display: { xs: 'inline-block', sm: 'none' },
-        // fontFamily: 'monospace',
-        // letterSpacing: '.3rem',
-      }}
-    >
-      kathy
     </Typography>
   </Box>
 );

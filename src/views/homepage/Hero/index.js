@@ -12,20 +12,27 @@ const Hero = () => {
   const { userProfile: profile = {} } = config;
 
   return (
-    <Box component="section" id="hero" sx={{ bgcolor: 'background.paper', py: 8 }}>
+    <Box component="section" id="hero" sx={{ bgcolor: 'background.default', py: 8 }}>
       <Container maxWidth="xl">
         <Box maxWidth={1000}>
-          <Typography color="primary.main">Hi, my name is</Typography>
-          <Typography variant="largeHeading" component="h2" color="text.primary">
+          <Typography
+            sx={{
+              fontFamily: 'monospace',
+              color: 'primary.main',
+            }}
+          >
+            Hi, my name is
+          </Typography>
+          <Typography variant="largeHeading" component="h2" color="text.secondary">
             {`${profile.firstName} ${profile.lastName}`}
           </Typography>
-          <Typography variant="mediumHeading" component="h2" color="text.secondary" gutterBottom>
-            I guarantee the quality of web.
+          <Typography variant="mediumHeading" component="h2" gutterBottom>
+            I build things for the web.
           </Typography>
           <Box maxWidth={600}>
             <Typography variant="lead">
-              I’m a software engineer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I’m
-              focused on building accessible, human-centered products at Upstatement.
+              I’m a software engineer based in Ho Chi Minh, VN specializing in building (and occasionally designing) exceptional websites,
+              applications, and everything in between.
             </Typography>
           </Box>
           <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
@@ -37,7 +44,7 @@ const Hero = () => {
             >
               Hire me now
             </Button>
-            <Button size="large" variant="contained" target="_blank" href="/resume.pdf" aria-label="download cv">
+            <Button size="large" variant="outlined" target="_blank" href="/resume.pdf" aria-label="download cv">
               Download CV
             </Button>
           </Stack>

@@ -34,30 +34,20 @@ const AboutMe = () => {
   return (
     <Box ref={revealContainer} component="section" id="about-me" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
-        <Box maxWidth={1000} margin="0 auto">
+        <Box maxWidth={860} margin="0 auto">
           <Box display="flex" gap={{ xs: 4, lg: 6 }} flexDirection={{ xs: 'column', lg: 'row' }}>
-            <Pic>
-              <div className="wrapper">
-                <img src={ImageAvatar} alt="Avatar" className="img" />
-              </div>
-            </Pic>
             <Box flex={1}>
-              <Typography variant="numberedHeading" component="h2" gutterBottom>
+              <Typography variant="numberedHeading" component="h2" gutterBottom color="text.secondary">
                 About me
               </Typography>
+              <Typography gutterBottom>Hello! I’m Duc, a software engineer based in Ho Chi Minh, VN.</Typography>
               <Typography gutterBottom>
-                Hello! My name is Brittany and I enjoy creating things that live on the internet. My interest in web development started
-                back in 2012 when I decided to try editing custom Tumblr themes — turns out hacking together a custom reblog button taught
-                me a lot about HTML & CSS!
+                I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal
+                is to always build products that provide pixel-perfect, performant experiences.
               </Typography>
               <Typography gutterBottom>
-                Fast-forward to today, and I’ve had the privilege of working at an advertising agency, a start-up, a huge corporation, and a
-                student-led design studio. My main focus these days is building accessible, inclusive products and digital experiences at
-                Upstatement for a variety of clients.
-              </Typography>
-              <Typography gutterBottom>
-                I also recently launched a course that covers everything you need to build a web app with the Spotify API using Node &
-                React.
+                Shortly after graduating from Sai Gon University, I joined the engineering team at IMAD Technology where I work on a wide
+                variety of interesting and meaningful projects on a daily basis.
               </Typography>
 
               <Divider sx={{ my: 2 }} />
@@ -110,6 +100,11 @@ const AboutMe = () => {
                 </Grid>
               </Grid>
             </Box>
+            <Pic>
+              <div className="wrapper">
+                <img src={ImageAvatar} alt="Avatar" className="img" />
+              </div>
+            </Pic>
           </Box>
         </Box>
       </Container>

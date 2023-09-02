@@ -37,7 +37,7 @@ const Skills = () => {
     <Box component="section" id="experiences-skills" sx={{ bgcolor: 'background.default', py: 8 }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
-          <Typography variant="numberedHeading" component="h2" gutterBottom>
+          <Typography variant="numberedHeading" component="h2" gutterBottom color="text.secondary">
             Experiences and Skills
           </Typography>
           <Typography variant="lead">

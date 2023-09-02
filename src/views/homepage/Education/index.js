@@ -32,10 +32,10 @@ const Education = () => {
   }, [srConfig]);
 
   return (
-    <Box component="section" id="education" sx={{ py: 8, bgcolor: 'background.paper' }}>
+    <Box component="section" id="education" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
-          <Typography variant="numberedHeading" component="h2" gutterBottom>
+          <Typography variant="numberedHeading" component="h2" gutterBottom color="text.secondary">
             My Education
           </Typography>
           <Typography variant="lead">
@@ -62,7 +62,7 @@ const EducationCard = forwardRef((props, ref) => {
   const { ...item } = props;
 
   return (
-    <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.default' }}>
+    <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.paper' }}>
       <CardContent>
         <Typography color="primary.main">
           <IconCertificate stroke={1} size="5rem" />

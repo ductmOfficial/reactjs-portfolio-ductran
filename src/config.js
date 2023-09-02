@@ -6,15 +6,15 @@ const config = {
   fontFamily: `'Roboto', sans-serif`,
   borderRadius: 4,
   seo: {
-    siteName: 'callmekathy',
+    siteName: 'iamduc',
     description: '',
   },
   apiKey: '4fb6229be9422aa0c9ada530de02a45d',
   userProfile: {
-    firstName: 'Khue',
-    lastName: 'Nguyen',
-    email: 'khuenguyen.official@gmail.com',
-    phoneNumber: '+84963891034',
+    firstName: 'Duc',
+    lastName: 'Tran',
+    email: 'ductran.official@gmail.com',
+    phoneNumber: '+84795825129',
     address: {
       value: '961 Hau Giang, 11 Ward, District 6, Ho Chi Minh City',
       country: 'Vietnam',
@@ -27,7 +27,7 @@ const config = {
       facebook: 'https://www.facebook.com/khue.nguyen.986227',
       instagram: 'https://www.instagram.com/kathy_nguyen1707/',
       linkedin: 'https://www.instagram.com/kathy_nguyen1707/',
-      skype: 'live:khuenguyen1707',
+      skype: 'live:minhduc.tran.sgu',
     },
   },
   srConfig: (delay = 200, viewFactor = 0.25) => ({

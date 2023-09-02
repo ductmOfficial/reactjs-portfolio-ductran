@@ -24,8 +24,10 @@ const MainLayout = () => (
       <MainContent>
         <Outlet />
 
-        <Box sx={{ py: 2, textAlign: 'center' }}>
-          <Typography color="text.secondary">Designed & Built by Duc Tran</Typography>
+        <Box sx={{ py: 2 }}>
+          <Typography variant="body2" align="center" color="text.secondary" fontFamily="monospace">
+            Designed & Built by Duc Tran
+          </Typography>
         </Box>
       </MainContent>
     </Box>
