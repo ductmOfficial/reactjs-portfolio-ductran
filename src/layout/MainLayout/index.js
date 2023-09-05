@@ -10,6 +10,8 @@ import { Typography } from '@mui/material';
 import Head from './Head';
 import Header from './Header';
 import MainContent from './MainContent';
+import Social from 'components/Social';
+import Email from 'components/Email';
 
 const MainLayout = () => (
   <React.Fragment>
@@ -30,6 +32,8 @@ const MainLayout = () => (
           </Typography>
         </Box>
       </MainContent>
+      <Social />
+      <Email />
     </Box>
   </React.Fragment>
 );

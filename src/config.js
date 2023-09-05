@@ -1,3 +1,13 @@
+import {
+  IconBrandCodepen,
+  IconBrandCodesandbox,
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandTwitter,
+} from '@tabler/icons-react';
+
+// project imports
 import * as routes from 'constants/routes';
 
 const config = {
@@ -30,6 +40,38 @@ const config = {
       skype: 'live:minhduc.tran.sgu',
     },
   },
+  socialMedia: [
+    {
+      name: 'github',
+      icon: IconBrandGithub,
+      url: 'https://github.com/ductmOfficial',
+    },
+    {
+      name: 'instagram',
+      icon: IconBrandInstagram,
+      url: 'https://www.instagram.com/ductmofficial',
+    },
+    {
+      name: 'linkedin-in',
+      icon: IconBrandLinkedin,
+      url: 'https://www.linkedin.com/in/duc-tran-183a56220/',
+    },
+    {
+      name: 'twitter',
+      icon: IconBrandTwitter,
+      url: 'https://twitter.com/ductmOfficial',
+    },
+    {
+      name: 'codepen',
+      icon: IconBrandCodepen,
+      url: 'https://codepen.io/ductmofficial',
+    },
+    {
+      name: 'dharmachakra',
+      icon: IconBrandCodesandbox,
+      url: 'https://www.codewars.com/users/ductm_official',
+    },
+  ],
   srConfig: (delay = 200, viewFactor = 0.25) => ({
     origin: 'bottom',
     distance: '20px',
