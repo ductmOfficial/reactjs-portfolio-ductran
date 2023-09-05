@@ -34,50 +34,62 @@ const AboutMe = () => {
   return (
     <Box ref={revealContainer} component="section" id="about-me" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
-        <Box maxWidth={860} margin="0 auto">
-          <Box display="flex" gap={{ xs: 4, lg: 6 }} flexDirection={{ xs: 'column', lg: 'row' }}>
-            <Box flex={1}>
-              <Typography variant="numberedHeading" component="h2" gutterBottom color="text.secondary">
-                About me
-              </Typography>
-              <Typography gutterBottom>Hello! I’m Duc, a software engineer based in Ho Chi Minh, VN.</Typography>
-              <Typography gutterBottom>
-                I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal
-                is to always build products that provide pixel-perfect, performant experiences.
-              </Typography>
-              <Typography gutterBottom>
-                Shortly after graduating from Sai Gon University, I joined the engineering team at IMAD Technology where I work on a wide
-                variety of interesting and meaningful projects on a daily basis.
-              </Typography>
+        <Box maxWidth={1000} margin="0 auto">
+          <Grid container spacing={{ xs: 2, lg: 4 }}>
+            <Grid item xs={12} sm={6} lg={5} sx={{ textAlign: 'center' }}>
+              <Pic>
+                <Box component="div" className="wrapper">
+                  <img src={ImageAvatar} alt="Avatar" className="img" />
+                </Box>
+              </Pic>
+            </Grid>
 
-              <Divider sx={{ my: 2 }} />
+            <Grid item xs={12} lg={4}>
+              <Box sx={{ textAlign: { lg: 'right' } }}>
+                <Typography variant="numberedHeading" component="h2" gutterBottom color="text.secondary">
+                  About me
+                </Typography>
+                <Typography gutterBottom>Hello! I’m Duc, a software engineer based in Ho Chi Minh, VN.</Typography>
+                <Typography gutterBottom>
+                  I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal
+                  is to always build products that provide pixel-perfect, performant experiences.
+                </Typography>
+                <Typography gutterBottom>
+                  Shortly after graduating from Sai Gon University, I joined the engineering team at IMAD Technology where I work on a wide
+                  variety of interesting and meaningful projects on a daily basis.
+                </Typography>
 
+                <Divider sx={{ my: 2 }} />
+              </Box>
+            </Grid>
+
+            <Grid item xs>
               <Grid container spacing={2}>
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12}>
                   <Box>
                     <Typography variant="h5">Phone</Typography>
                     <Typography color="text.secondary">{profile.phoneNumber}</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12}>
                   <Box>
                     <Typography variant="h5">Email</Typography>
                     <Typography color="text.secondary">{profile.email}</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12}>
                   <Box>
                     <Typography variant="h5">Location</Typography>
                     <Typography color="text.secondary">{`${profile.address.city}, ${profile.address.country}`}</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12}>
                   <Box>
                     <Typography variant="h5">Skype</Typography>
                     <Typography color="text.secondary">{profile.social.skype}</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={12} lg={6}>
+                <Grid item xs={12}>
                   <Box>
                     <Typography variant="h5" gutterBottom>
                       You can follow me also here:
@@ -99,13 +111,8 @@ const AboutMe = () => {
                   </Box>
                 </Grid>
               </Grid>
-            </Box>
-            <Pic>
-              <div className="wrapper">
-                <img src={ImageAvatar} alt="Avatar" className="img" />
-              </div>
-            </Pic>
-          </Box>
+            </Grid>
+          </Grid>
         </Box>
       </Container>
     </Box>

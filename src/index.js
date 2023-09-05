@@ -8,14 +8,16 @@ import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 
 // project imports
+import { FirebaseContext } from 'context/firebase';
+import { firebase } from 'lib/firebase.prod';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 // style + assets
 import 'assets/scss/style.scss';
@@ -26,11 +28,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <HelmetProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </HelmetProvider>
+    <FirebaseContext.Provider value={{ firebase }}>
+      <HelmetProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </HelmetProvider>
+    </FirebaseContext.Provider>
   </React.StrictMode>
 );
 
