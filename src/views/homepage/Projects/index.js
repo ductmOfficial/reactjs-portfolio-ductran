@@ -48,7 +48,7 @@ const Projects = ({ projects = [] }) => {
             view the archive
           </Link>
         </Box>
-        <Box>
+        <Box maxWidth={1000} margin="0 auto">
           <Grid container spacing={2}>
             {projectsToShow &&
               projectsToShow.map(({ node }, index) => {
@@ -89,9 +89,9 @@ const ProjectCard = forwardRef((props, ref) => {
 
   return (
     <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.paper', height: 1 }}>
-      <CardActions sx={{ pl: 2, alignItems: 'flex-start' }}>
+      <CardActions sx={{ pl: 1, alignItems: 'flex-start' }}>
         <Box component="div" color="primary.main">
-          <IconFolder stroke={1} size="5rem" />
+          <IconFolder stroke={1} size="3.5rem" />
         </Box>
         <Box flexGrow={1} />
         {frontmatter.github && (

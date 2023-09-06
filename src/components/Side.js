@@ -19,21 +19,16 @@ const Wrapper = styled('div', { shouldForwardProp: (props) => props !== 'orienta
   right: orientation === 'left' ? 'auto' : '40px',
   color: theme.palette.primary.light,
 
-  '@media (max-width: 1080px)': {
-    left: orientation === 'left' ? '20px' : 'auto',
-    right: orientation === 'left' ? 'auto' : '20px',
-  },
-
-  '@media (max-width: 768px)': {
+  '@media (max-width: 1200px)': {
     display: 'none',
   },
 }));
 
-const Side = ({ isHome, orientation, children, ...props }) => {
-  const [isMounted, setIsMounted] = useState(!isHome);
+const Side = ({ orientation, children, ...props }) => {
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (!isHome) {
+    if (isMounted) {
       return;
     }
 
@@ -41,12 +36,13 @@ const Side = ({ isHome, orientation, children, ...props }) => {
 
     // eslint-disable-next-line consistent-return
     return () => clearTimeout(timeout);
-  }, [isHome]);
+  }, [isMounted]);
+
   return (
     <Wrapper {...props} orientation={orientation}>
       <TransitionGroup component={null}>
         {isMounted && (
-          <CSSTransition classNames={isHome ? 'fade' : ''} timeout={isHome ? loaderDelay : 0}>
+          <CSSTransition classNames="fade" timeout={loaderDelay}>
             {children}
           </CSSTransition>
         )}
@@ -55,10 +51,9 @@ const Side = ({ isHome, orientation, children, ...props }) => {
   );
 };
 
+export default Side;
+
 Side.propTypes = {
-  isHome: PropTypes.bool,
   orientation: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
-
-export default Side;

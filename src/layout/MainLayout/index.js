@@ -4,38 +4,66 @@ import { Outlet } from 'react-router-dom';
 // material-ui
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 
 // project imports
-import { Typography } from '@mui/material';
+import Email from 'components/Email';
+import Social from 'components/Social';
+import config from 'config';
 import Head from './Head';
 import Header from './Header';
 import MainContent from './MainContent';
-import Social from 'components/Social';
-import Email from 'components/Email';
 
-const MainLayout = () => (
-  <React.Fragment>
-    <Head />
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
+const MainLayout = () => {
+  const { socialMedia } = config;
 
-      {/* header */}
-      <Header />
+  return (
+    <React.Fragment>
+      <Head />
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
 
-      {/* main content */}
-      <MainContent>
-        <Outlet />
+        {/* header */}
+        <Header />
 
-        <Box sx={{ py: 2 }}>
-          <Typography variant="body2" align="center" color="text.secondary" fontFamily="monospace">
-            Designed & Built by Duc Tran
-          </Typography>
-        </Box>
-      </MainContent>
-      <Social />
-      <Email />
-    </Box>
-  </React.Fragment>
-);
+        {/* main content */}
+        <MainContent>
+          <Outlet />
+
+          <Box sx={{ py: 4 }}>
+            <Box
+              sx={{
+                display: { xs: 'flex', lg: 'none' },
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 1,
+                mb: 1,
+              }}
+            >
+              {socialMedia &&
+                socialMedia.map(({ url, name, icon }) => {
+                  const Icon = icon;
+                  return (
+                    <Box key={`${url}`}>
+                      <IconButton href={url} target="_blank" aria-label={name} sx={{ color: 'text.primary' }}>
+                        <Icon stroke={1.5} size="1.75rem" />
+                      </IconButton>
+                    </Box>
+                  );
+                })}
+            </Box>
+            <Typography variant="body2" align="center" color="text.secondary" fontFamily="monospace">
+              Designed & Built by Duc Tran
+            </Typography>
+          </Box>
+        </MainContent>
+        <Social />
+        <Email />
+      </Box>
+    </React.Fragment>
+  );
+};
 
 export default MainLayout;

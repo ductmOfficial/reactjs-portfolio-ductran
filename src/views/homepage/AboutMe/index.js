@@ -35,13 +35,15 @@ const AboutMe = () => {
     <Box ref={revealContainer} component="section" id="about-me" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
         <Box maxWidth={1000} margin="0 auto">
-          <Grid container spacing={{ xs: 2, lg: 4 }}>
-            <Grid item xs={12} sm={6} lg={5} sx={{ textAlign: 'center' }}>
-              <Pic>
-                <Box component="div" className="wrapper">
-                  <img src={ImageAvatar} alt="Avatar" className="img" />
-                </Box>
-              </Pic>
+          <Grid container spacing={{ xs: 0, lg: 4 }}>
+            <Grid item xs={12} lg={5}>
+              <Box sx={{ display: 'flex', justifyContent: 'center', mb: { xs: 6, lg: 0 } }}>
+                <Pic>
+                  <Box component="div" className="wrapper">
+                    <img src={ImageAvatar} alt="Avatar" className="img" />
+                  </Box>
+                </Pic>
+              </Box>
             </Grid>
 
             <Grid item xs={12} lg={4}>

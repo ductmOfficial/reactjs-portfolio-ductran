@@ -39,7 +39,7 @@ const FeaturedProjects = ({ projects = [] }) => {
             Some Things I’ve Built
           </Typography>
         </Box>
-        <Box maxWidth={1200} margin="0 auto">
+        <Box maxWidth={1000} margin="0 auto">
           <Grid container spacing={2}>
             {featuredProjects &&
               featuredProjects.map(({ node }, index) => {

@@ -1,36 +1,47 @@
 import PropTypes from 'prop-types';
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import { Link as NavLink } from 'react-router-dom';
 
 // material-ui
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
+import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 
 // project imports
 import config from 'config';
 import sr from 'lib/sr';
 
-const GRID_LIMIT = 6;
-
 const Jobs = ({ jobs = [] }) => {
+  const [value, setValue] = useState(0);
   const revealTitle = useRef(null);
-  const revealCards = useRef([]);
+  const revealCards = useRef(null);
   const { srConfig } = config;
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   useEffect(() => {
     sr.reveal(revealTitle.current, srConfig());
-    revealCards.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
+    sr.reveal(revealCards.current, srConfig());
   }, [srConfig]);
+
+  useEffect(() => {
+    setValue(jobs.length - 1);
+  }, [jobs]);
 
   return (
     <Box component="section" id="education" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
-        <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={6}>
+        <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
             Where I’ve Worked
           </Typography>
@@ -38,27 +49,31 @@ const Jobs = ({ jobs = [] }) => {
             view the archive
           </Link>
         </Box>
-        <Box>
-          <Grid container spacing={2}>
+        <Box ref={revealCards} maxWidth={1000} margin="0 auto">
+          <TabContext value={value}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <TabList centered onChange={handleChange} aria-label="lab API tabs example">
+                {jobs &&
+                  jobs.map(({ node }, index) => {
+                    const { frontmatter } = node;
+                    const { title, company } = frontmatter;
+
+                    return <Tab key={title} label={company} value={index} sx={{ textTransform: 'unset' }} />;
+                  })}
+              </TabList>
+            </Box>
             {jobs &&
               jobs.map(({ node }, index) => {
                 const { frontmatter } = node;
                 const { title } = frontmatter;
 
                 return (
-                  <Grid key={title} item xs={12} sm={6} lg={4}>
-                    <JobCard
-                      /* eslint-disable-next-line no-return-assign */
-                      ref={(el) => (revealCards.current[index] = el)}
-                      style={{
-                        transitionDelay: `${index >= GRID_LIMIT ? (index - GRID_LIMIT) * 100 : 0}ms`,
-                      }}
-                      node={node}
-                    />
-                  </Grid>
+                  <TabPanel key={title} value={index} sx={{ p: 0 }}>
+                    <JobCard node={node} />
+                  </TabPanel>
                 );
               })}
-          </Grid>
+          </TabContext>
         </Box>
       </Container>
     </Box>
