@@ -8,8 +8,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
 // project imports
-import Email from 'components/Email';
-import Social from 'components/Social';
 import config from 'config';
 import Head from './Head';
 import Header from './Header';
@@ -31,10 +29,10 @@ const MainLayout = () => {
         <MainContent>
           <Outlet />
 
-          <Box sx={{ py: 4 }}>
+          <Box sx={{ py: 2 }}>
             <Box
               sx={{
-                display: { xs: 'flex', lg: 'none' },
+                display: { xs: 'flex' },
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -59,8 +57,6 @@ const MainLayout = () => {
             </Typography>
           </Box>
         </MainContent>
-        <Social />
-        <Email />
       </Box>
     </React.Fragment>
   );

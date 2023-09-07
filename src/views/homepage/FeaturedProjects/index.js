@@ -34,7 +34,7 @@ const FeaturedProjects = ({ projects = [] }) => {
   const featuredProjects = projects.slice(0, 3);
 
   return (
-    <Box component="section" id="projects" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box component="section" id="projects" sx={{ py: 8, bgcolor: 'background.paper' }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={6}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
@@ -73,7 +73,7 @@ const ProjectCard = forwardRef((props, ref) => {
   const { frontmatter, html } = node;
 
   return (
-    <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.paper', height: 1 }}>
+    <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.default', height: 1 }}>
       <Box
         sx={{
           position: 'relative',

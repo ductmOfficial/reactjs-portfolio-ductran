@@ -38,7 +38,7 @@ const Projects = ({ projects = [] }) => {
   const projectsToShow = showMore ? projects : firstSix;
 
   return (
-    <Box component="section" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box component="section" sx={{ py: 8, bgcolor: 'background.paper' }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={6}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
@@ -88,10 +88,10 @@ const ProjectCard = forwardRef((props, ref) => {
   const { frontmatter, html } = node;
 
   return (
-    <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.paper', height: 1 }}>
+    <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.default', height: 1 }}>
       <CardActions sx={{ pl: 1, alignItems: 'flex-start' }}>
         <Box component="div" color="primary.main">
-          <IconFolder stroke={1} size="3.5rem" />
+          <IconFolder stroke={1} size="5rem" />
         </Box>
         <Box flexGrow={1} />
         {frontmatter.github && (

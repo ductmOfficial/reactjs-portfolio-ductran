@@ -39,7 +39,7 @@ const Jobs = ({ jobs = [] }) => {
   }, [jobs]);
 
   return (
-    <Box component="section" id="jobs" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box component="section" id="jobs" sx={{ py: 8, bgcolor: 'background.paper' }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
@@ -49,7 +49,7 @@ const Jobs = ({ jobs = [] }) => {
             view the archive
           </Link>
         </Box>
-        <Box ref={revealCards} maxWidth={1000} margin="0 auto">
+        <Box ref={revealCards} maxWidth={720} margin="0 auto">
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList centered onChange={handleChange} aria-label="lab API tabs example">

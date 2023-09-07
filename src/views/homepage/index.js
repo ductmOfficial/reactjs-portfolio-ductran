@@ -4,11 +4,14 @@ import Box from '@mui/material/Box';
 // project imports
 import useContent from 'hooks/useContent';
 import AboutMe from './AboutMe';
+import Advertisement from './Advertisement';
 import FeaturedProjects from './FeaturedProjects';
+import FunFacts from './FunFacts';
 import GetInTouch from './GetInTouch';
 import Hero from './Hero';
 import Jobs from './Jobs';
 import Projects from './Projects';
+import Services from './Services';
 import Skills from './Skills';
 
 const Homepage = () => {
@@ -18,11 +21,14 @@ const Homepage = () => {
   return (
     <Box component="article">
       <Hero />
+      <FunFacts />
       <AboutMe />
       <Skills />
       <Jobs jobs={jobs} />
+      <Services />
       <FeaturedProjects projects={projects} />
       <Projects projects={projects} />
+      <Advertisement />
       <GetInTouch />
     </Box>
   );
