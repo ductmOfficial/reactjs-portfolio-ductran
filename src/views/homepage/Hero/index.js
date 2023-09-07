@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 // material-ui
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,7 +10,7 @@ import Typography from '@mui/material/Typography';
 // project imports
 import config from 'config';
 
-const Hero = () => {
+const Hero = ({ fullHeight = false }) => {
   const { userProfile: profile = {} } = config;
 
   return (
@@ -16,17 +18,19 @@ const Hero = () => {
       component="section"
       id="hero"
       sx={{
-        bgcolor: 'background.default',
+        bgcolor: 'background.paper',
         py: 8,
       }}
     >
       <Container maxWidth="xl">
-        <Box maxWidth={1000} margin="0 auto">
+        <Box margin="0 auto">
           <Box
             sx={{
               display: 'flex',
-              minHeight: { lg: 'calc(100vh - 180px)' },
               alignItems: 'center',
+              ...(fullHeight && {
+                minHeight: { lg: 'calc(100vh - 180px)' },
+              }),
             }}
           >
             <Box>
@@ -54,7 +58,7 @@ const Hero = () => {
                 <Button
                   size="large"
                   target="_blank"
-                  variant="outlined"
+                  variant="contained"
                   href={`mailto:${profile.email}?subject=An amazing job opportunity inside!`}
                 >
                   Hire me now
@@ -72,3 +76,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
+Hero.propTypes = {
+  fullHeight: PropTypes.bool,
+};

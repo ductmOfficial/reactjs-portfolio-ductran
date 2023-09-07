@@ -42,7 +42,7 @@ const Skills = () => {
   }, [srConfig]);
 
   return (
-    <Box component="section" id="skills" sx={{ bgcolor: 'background.default', py: 8 }}>
+    <Box component="section" id="skills" sx={{ bgcolor: 'background.paper', py: 8 }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
           <Typography variant="numberedHeading" component="h2" gutterBottom color="text.secondary">
@@ -69,7 +69,7 @@ const SkillCard = forwardRef((props, ref) => {
   const Icon = item.icon;
 
   return (
-    <Card ref={ref} elevation={0} sx={{ display: 'flex', alignItems: 'center', height: 1, bgcolor: 'background.paper' }}>
+    <Card ref={ref} elevation={0} sx={{ display: 'flex', alignItems: 'center', height: 1, bgcolor: 'background.default' }}>
       <CardContent sx={{ flex: 1, textAlign: 'center' }}>
         <Box
           sx={{
@@ -77,7 +77,7 @@ const SkillCard = forwardRef((props, ref) => {
             color: 'primary.main',
           }}
         >
-          <Icon stroke={1.5} size="5rem" />
+          <Icon stroke={1} size="5rem" />
         </Box>
         <Typography variant="h3">{item.title}</Typography>
       </CardContent>

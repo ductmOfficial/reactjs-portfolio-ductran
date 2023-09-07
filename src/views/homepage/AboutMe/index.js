@@ -3,7 +3,6 @@ import { useEffect, useRef } from 'react';
 // material-ui
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
@@ -30,7 +29,7 @@ const AboutMe = () => {
   }, [srConfig]);
 
   return (
-    <Box ref={revealContainer} component="section" id="about-me" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box ref={revealContainer} component="section" id="about-me" sx={{ py: 8, bgcolor: 'background.paper' }}>
       <Container maxWidth="xl">
         <Box maxWidth={1000} margin="0 auto">
           <Grid container spacing={{ xs: 0, lg: 4 }}>
@@ -58,8 +57,6 @@ const AboutMe = () => {
                   Shortly after graduating from Sai Gon University, I joined the engineering team at IMAD Technology where I work on a wide
                   variety of interesting and meaningful projects on a daily basis.
                 </Typography>
-
-                <Divider sx={{ my: 2 }} />
               </Box>
             </Grid>
 
@@ -95,16 +92,16 @@ const AboutMe = () => {
                       You can follow me also here:
                     </Typography>
                     <Stack direction="row" spacing={1}>
-                      <IconButton color="primary" href={profile.social.facebook} target="_blank" sx={{ bgcolor: 'background.paper' }}>
+                      <IconButton color="primary" href={profile.social.facebook} target="_blank" sx={{ bgcolor: 'background.default' }}>
                         <IconBrandFacebook stroke={1.5} size="1.3rem" />
                       </IconButton>
-                      <IconButton color="primary" href={profile.social.linkedin} target="_blank" sx={{ bgcolor: 'background.paper' }}>
+                      <IconButton color="primary" href={profile.social.linkedin} target="_blank" sx={{ bgcolor: 'background.default' }}>
                         <IconBrandLinkedin stroke={1.5} size="1.3rem" />
                       </IconButton>
-                      <IconButton color="primary" href={profile.social.instagram} target="_blank" sx={{ bgcolor: 'background.paper' }}>
+                      <IconButton color="primary" href={profile.social.instagram} target="_blank" sx={{ bgcolor: 'background.default' }}>
                         <IconBrandInstagram stroke={1.5} size="1.3rem" />
                       </IconButton>
-                      <IconButton color="primary" href={`skype:${profile.social.skype}?chat`} sx={{ bgcolor: 'background.paper' }}>
+                      <IconButton color="primary" href={`skype:${profile.social.skype}?chat`} sx={{ bgcolor: 'background.default' }}>
                         <IconBrandSkype stroke={1.5} size="1.3rem" />
                       </IconButton>
                     </Stack>
