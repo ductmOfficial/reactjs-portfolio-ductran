@@ -18,10 +18,8 @@ import sr from 'lib/sr';
 import Pic from './Pic';
 
 // assets
-import ImageAvatar from 'assets/images/avatar.jpg';
-
-// const avatarJPG =
-// 'https://scontent.fsgn12-1.fna.fbcdn.net/v/t39.30808-6/270119985_2109344799219883_8385049583524957214_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=Nfr-rbqmBqEAX9VNNfJ&_nc_ht=scontent.fsgn12-1.fna&oh=00_AfAVlmPWdXPbaYuWbZpUcgOg2wAhbXnn_n2bHrjyiyAIWA&oe=64EF81A3';
+import ImageAvatar from 'assets/images/avatar.jpeg';
+import { formatPhoneNumber } from 'utils/number';
 
 const AboutMe = () => {
   const revealContainer = useRef(null);
@@ -70,7 +68,7 @@ const AboutMe = () => {
                 <Grid item xs={12}>
                   <Box>
                     <Typography variant="h5">Phone</Typography>
-                    <Typography color="text.secondary">{profile.phoneNumber}</Typography>
+                    <Typography color="text.secondary">{formatPhoneNumber(profile.phoneNumber)}</Typography>
                   </Box>
                 </Grid>
                 <Grid item xs={12}>

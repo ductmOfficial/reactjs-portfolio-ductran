@@ -19,6 +19,8 @@ import { IconExternalLink, IconGitBranch } from '@tabler/icons-react';
 import config from 'config';
 import sr from 'lib/sr';
 
+const GRID_LIMIT = 6;
+
 const FeaturedProjects = ({ projects = [] }) => {
   const revealTitle = useRef(null);
   const revealCards = useRef([]);
@@ -32,7 +34,7 @@ const FeaturedProjects = ({ projects = [] }) => {
   const featuredProjects = projects.slice(0, 3);
 
   return (
-    <Box component="section" id="education" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box component="section" id="projects" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={6}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
@@ -51,6 +53,9 @@ const FeaturedProjects = ({ projects = [] }) => {
                     <ProjectCard
                       /* eslint-disable-next-line no-return-assign */
                       ref={(el) => (revealCards.current[index] = el)}
+                      style={{
+                        transitionDelay: `${index >= GRID_LIMIT ? (index - GRID_LIMIT) * 100 : 0}ms`,
+                      }}
                       node={node}
                     />
                   </Grid>

@@ -10,7 +10,6 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -20,7 +19,7 @@ import config from 'config';
 import sr from 'lib/sr';
 
 const Jobs = ({ jobs = [] }) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState('1');
   const revealTitle = useRef(null);
   const revealCards = useRef(null);
   const { srConfig } = config;
@@ -35,11 +34,12 @@ const Jobs = ({ jobs = [] }) => {
   }, [srConfig]);
 
   useEffect(() => {
-    setValue(jobs.length - 1);
+    const newIndex = jobs.length || 1;
+    setValue(`${newIndex}`);
   }, [jobs]);
 
   return (
-    <Box component="section" id="education" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box component="section" id="jobs" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
@@ -56,19 +56,19 @@ const Jobs = ({ jobs = [] }) => {
                 {jobs &&
                   jobs.map(({ node }, index) => {
                     const { frontmatter } = node;
-                    const { title, company } = frontmatter;
+                    const { company } = frontmatter;
 
-                    return <Tab key={title} label={company} value={index} sx={{ textTransform: 'unset' }} />;
+                    return <Tab key={company} label={company} value={`${index + 1}`} sx={{ textTransform: 'unset' }} />;
                   })}
               </TabList>
             </Box>
             {jobs &&
               jobs.map(({ node }, index) => {
                 const { frontmatter } = node;
-                const { title } = frontmatter;
+                const { company } = frontmatter;
 
                 return (
-                  <TabPanel key={title} value={index} sx={{ p: 0 }}>
+                  <TabPanel key={company} value={`${index + 1}`} sx={{ p: 0 }}>
                     <JobCard node={node} />
                   </TabPanel>
                 );
@@ -104,18 +104,20 @@ const JobCard = forwardRef((props, ref) => {
 
 export default Jobs;
 
-Jobs.propTypes = {
-  jobs: PropTypes.array,
-};
-
-JobCard.propTypes = {
-  node: {
+const TJob = {
+  node: PropTypes.shape({
     html: PropTypes.string,
-    frontmatter: {
+    frontmatter: PropTypes.shape({
       title: PropTypes.string,
       range: PropTypes.string,
       url: PropTypes.string,
       company: PropTypes.string,
-    },
-  },
+    }),
+  }),
 };
+
+Jobs.propTypes = {
+  jobs: PropTypes.arrayOf(PropTypes.shape(TJob)),
+};
+
+JobCard.propTypes = TJob;

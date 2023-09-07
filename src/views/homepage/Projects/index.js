@@ -38,7 +38,7 @@ const Projects = ({ projects = [] }) => {
   const projectsToShow = showMore ? projects : firstSix;
 
   return (
-    <Box component="section" id="education" sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box component="section" sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={6}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>

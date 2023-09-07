@@ -5,7 +5,6 @@
  */
 
 import Side from 'components/Side';
-import PropTypes from 'prop-types';
 
 // material-ui
 import Box from '@mui/material/Box';
@@ -14,11 +13,11 @@ import IconButton from '@mui/material/IconButton';
 // project imports
 import config from 'config';
 
-const Social = ({ isHome }) => {
+const Social = () => {
   const { socialMedia } = config;
 
   return (
-    <Side isHome={isHome} orientation="left">
+    <Side orientation="left">
       <Box
         sx={{
           display: 'flex',
@@ -55,6 +54,4 @@ const Social = ({ isHome }) => {
 
 export default Social;
 
-Social.propTypes = {
-  isHome: PropTypes.bool,
-};
+Social.propTypes = {};

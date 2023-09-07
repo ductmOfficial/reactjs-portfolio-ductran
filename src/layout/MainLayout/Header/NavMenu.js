@@ -16,16 +16,24 @@ const NavButton = styled(Button)(() => ({
 }));
 
 const pages = [
-  { title: 'About', path: '#about-me' },
-  { title: 'Experiences', path: '#education' },
-  { title: 'Work', path: '#experiences-skills' },
-  { title: 'Contact', path: '#get-in-touch' },
+  { title: 'About', path: '/#about-me' },
+  { title: 'Experiences', path: '/#jobs' },
+  { title: 'Work', path: '/#projects' },
+  { title: 'Contact', path: '/#get-in-touch' },
 ];
 
 const NavMenu = (props) => (
   <Stack direction="row" spacing={1} alignItems="center" {...props}>
     {pages.map(({ title, path }, index) => (
-      <NavButton key={path} to={path} component={HashLink} sx={{ fontFamily: 'monospace' }} smooth>
+      <NavButton
+        key={path}
+        component={HashLink}
+        to={path}
+        smooth
+        sx={{
+          fontFamily: 'monospace',
+        }}
+      >
         <Typography
           component="span"
           sx={{

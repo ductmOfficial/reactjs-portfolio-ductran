@@ -42,11 +42,11 @@ const Skills = () => {
   }, [srConfig]);
 
   return (
-    <Box component="section" id="experiences-skills" sx={{ bgcolor: 'background.default', py: 8 }}>
+    <Box component="section" id="skills" sx={{ bgcolor: 'background.default', py: 8 }}>
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
           <Typography variant="numberedHeading" component="h2" gutterBottom color="text.secondary">
-            What I Am Greate At
+            A few technologies I’ve worked
           </Typography>
         </Box>
         <Box maxWidth={720} margin="0 auto">

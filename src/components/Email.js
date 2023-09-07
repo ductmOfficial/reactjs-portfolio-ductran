@@ -1,11 +1,4 @@
-/**
- *
- * Social
- *
- */
-
 import Side from 'components/Side';
-import PropTypes from 'prop-types';
 
 // material-ui
 import Box from '@mui/material/Box';
@@ -14,11 +7,11 @@ import Link from '@mui/material/Link';
 // project imports
 import config from 'config';
 
-const Email = ({ isHome }) => {
+const Email = () => {
   const { userProfile } = config;
 
   return (
-    <Side isHome={isHome} orientation="right">
+    <Side orientation="right">
       <Box
         sx={{
           display: 'flex',
@@ -57,6 +50,4 @@ const Email = ({ isHome }) => {
 
 export default Email;
 
-Email.propTypes = {
-  isHome: PropTypes.bool,
-};
+Email.propTypes = {};
