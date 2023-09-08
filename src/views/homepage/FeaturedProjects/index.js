@@ -73,7 +73,16 @@ const ProjectCard = forwardRef((props, ref) => {
   const { frontmatter, html } = node;
 
   return (
-    <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.default', height: 1 }}>
+    <Card
+      ref={ref}
+      elevation={0}
+      sx={{
+        height: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        bgcolor: 'background.default',
+      }}
+    >
       <Box
         sx={{
           position: 'relative',
@@ -113,28 +122,35 @@ const ProjectCard = forwardRef((props, ref) => {
         <CardMedia component="img" height={300} alt={frontmatter.title} image={frontmatter.cover} />
       </Box>
 
-      <CardContent>
-        <Typography variant="caption" color="primary.main">
+      <CardContent sx={{ marginBottom: 'auto' }}>
+        <Typography variant="overline" color="primary.main" fontFamily="monospace">
           Featured Project
         </Typography>
-        <Typography variant="h3" color="text.secondary" gutterBottom>
+        <Typography variant="h3" sx={{ mb: 2 }}>
           {frontmatter.title}
         </Typography>
-
-        <Box component="div" dangerouslySetInnerHTML={{ __html: html }} />
         <Box
           sx={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: 2,
+            gap: 1,
           }}
         >
           {frontmatter.tech.map((techItem) => (
-            <Typography key={techItem} variant="body2" color="text.secondary" fontFamily="monospace">
+            <Typography key={techItem} variant="body2" color="text.secondary">
               {techItem}
             </Typography>
           ))}
         </Box>
+        <Box
+          component="div"
+          dangerouslySetInnerHTML={{ __html: html }}
+          sx={{
+            '& > p': {
+              margin: 0,
+            },
+          }}
+        />
       </CardContent>
       <CardActions>
         {frontmatter.github && (

@@ -4,25 +4,20 @@ import { useEffect, useRef } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-
-// third-party
-import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandSkype } from '@tabler/icons-react';
 
 // project imports
 import config from 'config';
 import sr from 'lib/sr';
 import Pic from './Pic';
+import Social from './Social';
 
 // assets
 import ImageAvatar from 'assets/images/avatar.jpeg';
-import { formatPhoneNumber } from 'utils/number';
 
 const AboutMe = () => {
   const revealContainer = useRef(null);
-  const { userProfile: profile = {}, srConfig } = config;
+  const { srConfig } = config;
 
   useEffect(() => {
     sr.reveal(revealContainer.current, srConfig());
@@ -35,7 +30,7 @@ const AboutMe = () => {
           <Grid container spacing={{ xs: 0, lg: 4 }}>
             <Grid item xs={12} lg={5}>
               <Box sx={{ display: 'flex', justifyContent: 'center', mb: { xs: 6, lg: 0 } }}>
-                <Pic>
+                <Pic maxWidth={{ xs: 280, sm: 'calc(100% - 50px)' }}>
                   <Box component="div" className="wrapper">
                     <img src={ImageAvatar} alt="Avatar" className="img" />
                   </Box>
@@ -61,53 +56,7 @@ const AboutMe = () => {
             </Grid>
 
             <Grid item xs>
-              <Grid container spacing={2}>
-                <Grid item xs={12}>
-                  <Box>
-                    <Typography variant="h5">Phone</Typography>
-                    <Typography color="text.secondary">{formatPhoneNumber(profile.phoneNumber)}</Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12}>
-                  <Box>
-                    <Typography variant="h5">Email</Typography>
-                    <Typography color="text.secondary">{profile.email}</Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12}>
-                  <Box>
-                    <Typography variant="h5">Location</Typography>
-                    <Typography color="text.secondary">{`${profile.address.city}, ${profile.address.country}`}</Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12}>
-                  <Box>
-                    <Typography variant="h5">Skype</Typography>
-                    <Typography color="text.secondary">{profile.social.skype}</Typography>
-                  </Box>
-                </Grid>
-                <Grid item xs={12}>
-                  <Box>
-                    <Typography variant="h5" gutterBottom>
-                      You can follow me also here:
-                    </Typography>
-                    <Stack direction="row" spacing={1}>
-                      <IconButton color="primary" href={profile.social.facebook} target="_blank" sx={{ bgcolor: 'background.default' }}>
-                        <IconBrandFacebook stroke={1.5} size="1.3rem" />
-                      </IconButton>
-                      <IconButton color="primary" href={profile.social.linkedin} target="_blank" sx={{ bgcolor: 'background.default' }}>
-                        <IconBrandLinkedin stroke={1.5} size="1.3rem" />
-                      </IconButton>
-                      <IconButton color="primary" href={profile.social.instagram} target="_blank" sx={{ bgcolor: 'background.default' }}>
-                        <IconBrandInstagram stroke={1.5} size="1.3rem" />
-                      </IconButton>
-                      <IconButton color="primary" href={`skype:${profile.social.skype}?chat`} sx={{ bgcolor: 'background.default' }}>
-                        <IconBrandSkype stroke={1.5} size="1.3rem" />
-                      </IconButton>
-                    </Stack>
-                  </Box>
-                </Grid>
-              </Grid>
+              <Social />
             </Grid>
           </Grid>
         </Box>

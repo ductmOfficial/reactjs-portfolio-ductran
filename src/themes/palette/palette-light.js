@@ -23,7 +23,7 @@ export default {
   },
   background: {
     paper: '#ffffff',
-    default: '#f1f1f1',
+    default: '#f8f8f8',
   },
-  divider: '#f1f1f1',
+  divider: '#f8f8f8',
 };

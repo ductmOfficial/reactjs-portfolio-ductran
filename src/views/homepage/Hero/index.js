@@ -26,9 +26,9 @@ const Hero = ({ fullHeight = false }) => {
         <Box margin="0 auto">
           <Box
             sx={{
-              display: 'flex',
-              alignItems: 'center',
               ...(fullHeight && {
+                display: 'flex',
+                alignItems: 'center',
                 minHeight: { lg: 'calc(100vh - 180px)' },
               }),
             }}

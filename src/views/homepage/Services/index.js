@@ -26,7 +26,7 @@ const skills = [
   { title: 'Fast Support', icon: IconLifebuoy },
 ];
 
-const Advertisement = () => {
+const Services = () => {
   const revealTitle = useRef(null);
   const revealCards = useRef([]);
   const { srConfig } = config;
@@ -49,7 +49,7 @@ const Advertisement = () => {
             {skills.map((item, index) => (
               <Grid key={index} item xs={6} lg={4}>
                 {/* eslint-disable-next-line no-return-assign */}
-                <SkillCard ref={(el) => (revealCards.current[index] = el)} {...item} />
+                <ServiceCard ref={(el) => (revealCards.current[index] = el)} {...item} />
               </Grid>
             ))}
           </Grid>
@@ -59,7 +59,7 @@ const Advertisement = () => {
   );
 };
 
-const SkillCard = forwardRef((props, ref) => {
+const ServiceCard = forwardRef((props, ref) => {
   const { ...item } = props;
   const Icon = item.icon;
 
@@ -100,9 +100,9 @@ const SkillCard = forwardRef((props, ref) => {
   );
 });
 
-export default Advertisement;
+export default Services;
 
-SkillCard.propTypes = {
-  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+ServiceCard.propTypes = {
+  icon: PropTypes.any,
   title: PropTypes.string,
 };

@@ -48,7 +48,7 @@ const Projects = ({ projects = [] }) => {
             view the archive
           </Link>
         </Box>
-        <Box maxWidth={1000} margin="0 auto">
+        <Box maxWidth={1200} margin="0 auto">
           <Grid container spacing={2}>
             {projectsToShow &&
               projectsToShow.map(({ node }, index) => {
@@ -88,7 +88,16 @@ const ProjectCard = forwardRef((props, ref) => {
   const { frontmatter, html } = node;
 
   return (
-    <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.default', height: 1 }}>
+    <Card
+      ref={ref}
+      elevation={0}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        bgcolor: 'background.default',
+        height: 1,
+      }}
+    >
       <CardActions sx={{ pl: 1, alignItems: 'flex-start' }}>
         <Box component="div" color="primary.main">
           <IconFolder stroke={1} size="5rem" />
@@ -105,13 +114,29 @@ const ProjectCard = forwardRef((props, ref) => {
           </IconButton>
         )}
       </CardActions>
-      <CardContent>
-        <Typography variant="h3" color="text.secondary" gutterBottom>
+      <CardContent
+        sx={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <Typography variant="h3" gutterBottom>
           {frontmatter.title}
         </Typography>
-        <Box component="div" dangerouslySetInnerHTML={{ __html: html }} />
+        <Box
+          component="div"
+          dangerouslySetInnerHTML={{ __html: html }}
+          sx={{
+            marginBottom: 2,
+            '& > p': {
+              margin: 0,
+            },
+          }}
+        />
         <Box
           sx={{
+            marginTop: 'auto',
             display: 'flex',
             flexWrap: 'wrap',
             gap: 2,

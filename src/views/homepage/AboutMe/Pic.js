@@ -1,8 +1,8 @@
-import { styled, alpha } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import { alpha, styled } from '@mui/material/styles';
 
-export default styled('div')(({ theme }) => ({
+export default styled(Box)(({ theme }) => ({
   position: 'relative',
-  maxWidth: '300px',
 
   '@media (maxWidth: 768px)': {
     margin: '50px auto 0',

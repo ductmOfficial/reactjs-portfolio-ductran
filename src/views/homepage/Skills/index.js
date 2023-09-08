@@ -19,6 +19,7 @@ import {
 } from '@tabler/icons-react';
 
 // project imports
+import { Avatar } from '@mui/material';
 import config from 'config';
 import sr from 'lib/sr';
 
@@ -49,7 +50,7 @@ const Skills = () => {
             A few technologies I’ve worked
           </Typography>
         </Box>
-        <Box maxWidth={720} margin="0 auto">
+        <Box maxWidth={600} margin="0 auto">
           <Grid container spacing={2} justifyContent="stretch">
             {skills.map((item, index) => (
               <Grid key={index} item xs={6} lg={4}>
@@ -69,17 +70,35 @@ const SkillCard = forwardRef((props, ref) => {
   const Icon = item.icon;
 
   return (
-    <Card ref={ref} elevation={0} sx={{ display: 'flex', alignItems: 'center', height: 1, bgcolor: 'background.default' }}>
-      <CardContent sx={{ flex: 1, textAlign: 'center' }}>
-        <Box
+    <Card
+      ref={ref}
+      elevation={0}
+      sx={{
+        height: 1,
+        bgcolor: 'primary.800',
+        color: 'common.white',
+      }}
+    >
+      <CardContent
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Avatar
           sx={{
-            py: 2,
-            color: 'primary.main',
+            width: 80,
+            height: 80,
+            color: 'common.white',
+            bgcolor: 'primary.500',
           }}
         >
-          <Icon stroke={1} size="5rem" />
-        </Box>
-        <Typography variant="h3">{item.title}</Typography>
+          <Icon stroke={1} size="3.5rem" />
+        </Avatar>
+        <Typography variant="h5" sx={{ fontWeight: 'light', mt: 2 }}>
+          {item.title}
+        </Typography>
       </CardContent>
     </Card>
   );

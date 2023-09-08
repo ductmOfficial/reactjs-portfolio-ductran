@@ -22,8 +22,8 @@ export default {
     disabled: alpha('#e8e8e8', 0.5),
   },
   background: {
-    paper: '#181818',
-    default: '#212121',
+    paper: '#121212',
+    default: '#181818',
   },
-  divider: '#212121',
+  divider: '#181818',
 };

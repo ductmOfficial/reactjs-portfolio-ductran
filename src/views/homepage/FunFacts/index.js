@@ -32,10 +32,10 @@ const FunFacts = () => {
   }, [srConfig]);
 
   return (
-    <Box component="section" id="fun-facts" sx={{ bgcolor: 'primary.light', py: 8 }}>
+    <Box component="section" id="fun-facts" sx={{ bgcolor: 'primary.light', py: { xs: 2, lg: 4 } }}>
       <Container maxWidth="xl">
         <Box maxWidth={1000} margin="0 auto">
-          <Grid container spacing={4} justifyContent="stretch">
+          <Grid container spacing={{ xs: 2, lg: 4 }} justifyContent="stretch">
             {skills.map((item, index) => (
               <Grid key={index} item xs={6} lg={3}>
                 {/* eslint-disable-next-line no-return-assign */}
@@ -60,26 +60,28 @@ const SkillCard = forwardRef((props, ref) => {
         height: 1,
         display: 'flex',
         alignItems: 'center',
-        bgcolor: 'primary.main',
+        bgcolor: 'primary.800',
         color: 'common.white',
       }}
     >
       <CardContent sx={{ flex: 1, textAlign: 'center' }}>
         <Typography
-          variant="h1"
+          component="h3"
           sx={{
-            py: 2,
             fontWeight: 'bold',
+            fontFamily: 'monospace',
+            fontSize: 'clamp(40px, 8vw, 60px)',
           }}
         >
           {item.value.toString().padStart(2, '0').concat('+')}
         </Typography>
 
         <Typography
-          variant="h5"
+          component="p"
           sx={{
-            fontWeight: 'normal',
+            fontWeight: 'light',
             textTransform: 'uppercase',
+            fontSize: 'clamp(12px, 3vw, 16px)',
           }}
         >
           {item.title}
