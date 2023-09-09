@@ -22,7 +22,7 @@ const Advertisement = () => {
       component="section"
       id="advertisement"
       sx={{
-        bgcolor: 'primary.light',
+        bgcolor: 'primary.main',
         color: 'common.white',
         py: 8,
       }}
@@ -34,7 +34,7 @@ const Advertisement = () => {
             <Typography
               component="span"
               sx={{
-                color: 'primary.dark',
+                color: 'secondary.main',
                 fontWeight: 'inherit',
                 fontSize: 'inherit',
               }}

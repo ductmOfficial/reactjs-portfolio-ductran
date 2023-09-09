@@ -14,7 +14,7 @@ export default styled(Box)(({ theme }) => ({
     position: 'relative',
     width: '100%',
     borderRadius: '10px',
-    backgroundColor: alpha(theme.palette.primary.main, 0.5),
+    backgroundColor: alpha(theme.palette.secondary.main, 0.5),
 
     '.img': {
       display: 'block',
@@ -37,7 +37,7 @@ export default styled(Box)(({ theme }) => ({
       transition: 'all 500 cubic-bezier(0.645, 0.045, 0.355, 1)',
 
       border: '3px solid',
-      borderColor: theme.palette.primary.main,
+      borderColor: theme.palette.secondary.main,
       top: '20px',
       left: '20px',
     },

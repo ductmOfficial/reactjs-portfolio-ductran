@@ -9,7 +9,7 @@ const Logo = () => (
       sx={{
         fontSize: '38px',
         fontWeight: 'bold',
-        color: 'text.secondary',
+        color: 'secondary.main',
         textDecoration: 'none',
       }}
     >

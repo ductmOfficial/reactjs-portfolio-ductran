@@ -76,11 +76,11 @@ const ServiceCard = forwardRef((props, ref) => {
       <CardContent sx={{ flex: 1 }}>
         <Avatar
           sx={{
+            mb: 2,
             width: 80,
             height: 80,
             bgcolor: 'primary.light',
             color: 'common.white',
-            mb: 2,
           }}
         >
           <Icon stroke={1} size="3.5rem" />

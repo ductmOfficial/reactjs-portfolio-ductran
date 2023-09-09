@@ -42,7 +42,7 @@ const Header = () => {
                 <IconSunMoon stroke={1.5} size="1.3rem" />
               </IconButton>
             </Tooltip>
-            <Button variant="outlined" size="small" href="/resume.pdf" target="_blank">
+            <Button variant="outlined" color="primary" size="small" href="/resume.pdf" target="_blank">
               Download CV
             </Button>
           </Box>

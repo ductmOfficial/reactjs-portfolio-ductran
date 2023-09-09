@@ -75,17 +75,64 @@ const Social = () => {
               You can follow me also here:
             </Typography>
             <Stack direction="row" spacing={1}>
-              <IconButton color="primary" href={profile.social.facebook} target="_blank" sx={{ bgcolor: 'background.default' }}>
-                <IconBrandFacebook stroke={1.3} size="1.5rem" />
+              <IconButton
+                size="small"
+                color="inherit"
+                target="_blank"
+                href={profile.social.facebook}
+                sx={{
+                  color: 'common.white',
+                  bgcolor: 'primary.light',
+                  '&:hover': {
+                    color: 'primary.light',
+                  },
+                }}
+              >
+                <IconBrandFacebook stroke={1.5} size="1.5rem" />
               </IconButton>
-              <IconButton color="primary" href={profile.social.linkedin} target="_blank" sx={{ bgcolor: 'background.default' }}>
-                <IconBrandLinkedin stroke={1.3} size="1.5rem" />
+              <IconButton
+                size="small"
+                color="inherit"
+                target="_blank"
+                href={profile.social.linkedin}
+                sx={{
+                  color: 'common.white',
+                  bgcolor: 'primary.light',
+                  '&:hover': {
+                    color: 'primary.light',
+                  },
+                }}
+              >
+                <IconBrandLinkedin stroke={1.5} size="1.5rem" />
               </IconButton>
-              <IconButton color="primary" href={profile.social.instagram} target="_blank" sx={{ bgcolor: 'background.default' }}>
-                <IconBrandInstagram stroke={1.3} size="1.5rem" />
+              <IconButton
+                size="small"
+                color="inherit"
+                target="_blank"
+                href={profile.social.instagram}
+                sx={{
+                  color: 'common.white',
+                  bgcolor: 'primary.light',
+                  '&:hover': {
+                    color: 'primary.light',
+                  },
+                }}
+              >
+                <IconBrandInstagram stroke={1.5} size="1.5rem" />
               </IconButton>
-              <IconButton color="primary" href={`skype:${profile.social.skype}?chat`} sx={{ bgcolor: 'background.default' }}>
-                <IconBrandSkype stroke={1.3} size="1.5rem" />
+              <IconButton
+                size="small"
+                color="inherit"
+                href={`skype:${profile.social.skype}?chat`}
+                sx={{
+                  color: 'common.white',
+                  bgcolor: 'primary.light',
+                  '&:hover': {
+                    color: 'primary.light',
+                  },
+                }}
+              >
+                <IconBrandSkype stroke={1.5} size="1.5rem" />
               </IconButton>
             </Stack>
           </Box>
