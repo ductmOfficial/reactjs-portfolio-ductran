@@ -20,7 +20,7 @@ const skills = [
   { title: 'Projects Done', value: 79 },
   { title: 'Happy Clients', value: 82 },
   { title: 'Hours of Work', value: 890 },
-  { title: 'Years Experience', value: dayjs().diff(new Date('01-01-2016'), 'year') },
+  { title: 'Years Experience', value: dayjs().diff(new Date('2016-01-01'), 'year') },
 ];
 
 const FunFacts = () => {
