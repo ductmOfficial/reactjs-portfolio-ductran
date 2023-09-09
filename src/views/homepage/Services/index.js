@@ -41,7 +41,7 @@ const Services = () => {
       <Container maxWidth="xl">
         <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
-            My Best Service
+            Featured Services
           </Typography>
         </Box>
         <Box maxWidth={1000} margin="0 auto">
