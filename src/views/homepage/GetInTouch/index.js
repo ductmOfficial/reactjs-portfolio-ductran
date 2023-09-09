@@ -21,13 +21,13 @@ const GetInTouch = () => {
   return (
     <Box ref={revealContainer} component="section" id="get-in-touch" sx={{ bgcolor: 'background.paper', py: 8 }}>
       <Container maxWidth="xl">
-        <Box maxWidth={720} margin="0 auto" textAlign="center">
+        <Box maxWidth={600} margin="0 auto" textAlign="center">
           <Typography variant="numberedHeading" component="h2" gutterBottom color="text.secondary">
             Get In Touch
           </Typography>
           <Typography variant="lead" component="p" mb={4}>
-            Although I’m not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want
-            to say hi, I’ll try my best to get back to you!
+            Although I’m not currently seeking new opportunities, but I’m always happy to connect with people. Please feel free to reach out
+            if you have any questions or just want to say hello.
           </Typography>
           <Button
             variant="outlined"

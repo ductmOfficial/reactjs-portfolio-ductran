@@ -13,12 +13,20 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+// third-party
+import reverse from 'lodash/reverse';
 
 // project imports
 import config from 'config';
 import sr from 'lib/sr';
 
 const Jobs = ({ jobs = [] }) => {
+  const theme = useTheme();
+  const matchUpLg = useMediaQuery(theme.breakpoints.up('lg'));
+
   const [value, setValue] = useState('1');
   const revealTitle = useRef(null);
   const revealCards = useRef(null);
@@ -33,28 +41,29 @@ const Jobs = ({ jobs = [] }) => {
     sr.reveal(revealCards.current, srConfig());
   }, [srConfig]);
 
-  useEffect(() => {
-    const newIndex = jobs.length || 1;
-    setValue(`${newIndex}`);
-  }, [jobs]);
-
   return (
     <Box component="section" id="jobs" sx={{ py: 8, bgcolor: 'background.paper' }}>
       <Container maxWidth="xl">
-        <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
-          <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
+        <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={2}>
+          <Typography component="h2" variant="numberedHeading" color="text.secondary">
             Where I’ve Worked
           </Typography>
           <Link component={NavLink} align="center" underline="hover">
             view the archive
           </Link>
         </Box>
-        <Box ref={revealCards} maxWidth={720} margin="0 auto">
+        <Box ref={revealCards} maxWidth={1000} margin="0 auto">
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-              <TabList centered onChange={handleChange} aria-label="lab API tabs example">
+              <TabList
+                centered={matchUpLg}
+                variant={matchUpLg ? 'standard' : 'scrollable'}
+                scrollButtons="auto"
+                onChange={handleChange}
+                aria-label="lab API tabs example"
+              >
                 {jobs &&
-                  jobs.map(({ node }, index) => {
+                  reverse(jobs).map(({ node }, index) => {
                     const { frontmatter } = node;
                     const { company } = frontmatter;
 
@@ -63,7 +72,7 @@ const Jobs = ({ jobs = [] }) => {
               </TabList>
             </Box>
             {jobs &&
-              jobs.map(({ node }, index) => {
+              reverse(jobs).map(({ node }, index) => {
                 const { frontmatter } = node;
                 const { company } = frontmatter;
 
@@ -86,7 +95,7 @@ const JobCard = forwardRef((props, ref) => {
 
   return (
     <Card ref={ref} elevation={0} sx={{ bgcolor: 'background.paper', height: 1 }}>
-      <CardContent sx={{ p: 4 }}>
+      <CardContent sx={{ px: 0, pb: 0 }}>
         <Typography variant="h3" color="text.secondary" gutterBottom>
           {frontmatter.title}{' '}
           <Link underline="none" href={frontmatter.url} target="_blank">

@@ -104,13 +104,13 @@ const ProjectCard = forwardRef((props, ref) => {
         </Box>
         <Box flexGrow={1} />
         {frontmatter.github && (
-          <IconButton color="inherit" href={frontmatter.github} target="_blank">
-            <IconGitBranch stroke={1.5} size="1.5rem" />
+          <IconButton href={frontmatter.github} target="_blank">
+            <IconGitBranch stroke={1} size="1.5rem" />
           </IconButton>
         )}
         {frontmatter.external && (
-          <IconButton color="inherit" href={frontmatter.external} target="_blank">
-            <IconExternalLink stroke={1.5} size="1.5rem" />
+          <IconButton href={frontmatter.external} target="_blank">
+            <IconExternalLink stroke={1} size="1.5rem" />
           </IconButton>
         )}
       </CardActions>

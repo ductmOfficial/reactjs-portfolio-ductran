@@ -45,8 +45,8 @@ const MainLayout = () => {
                   const Icon = icon;
                   return (
                     <Box key={`${url}`}>
-                      <IconButton href={url} target="_blank" aria-label={name} sx={{ color: 'text.primary' }}>
-                        <Icon stroke={1.5} size="1.75rem" />
+                      <IconButton href={url} target="_blank" aria-label={name}>
+                        <Icon stroke={1} size="1.75rem" />
                       </IconButton>
                     </Box>
                   );

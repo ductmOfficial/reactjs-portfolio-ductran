@@ -36,7 +36,7 @@ const FeaturedProjects = ({ projects = [] }) => {
   return (
     <Box component="section" id="projects" sx={{ py: 8, bgcolor: 'background.paper' }}>
       <Container maxWidth="xl">
-        <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={6}>
+        <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
             Some Things I’ve Built
           </Typography>
@@ -154,13 +154,13 @@ const ProjectCard = forwardRef((props, ref) => {
       </CardContent>
       <CardActions>
         {frontmatter.github && (
-          <IconButton color="inherit" href={frontmatter.github} target="_blank">
-            <IconGitBranch stroke={1.5} size="1.5rem" />
+          <IconButton href={frontmatter.github} target="_blank">
+            <IconGitBranch stroke={1} size="1.5rem" />
           </IconButton>
         )}
         {frontmatter.external && (
-          <IconButton color="inherit" href={frontmatter.external} target="_blank">
-            <IconExternalLink stroke={1.5} size="1.5rem" />
+          <IconButton href={frontmatter.external} target="_blank">
+            <IconExternalLink stroke={1} size="1.5rem" />
           </IconButton>
         )}
       </CardActions>

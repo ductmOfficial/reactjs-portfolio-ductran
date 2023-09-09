@@ -39,7 +39,7 @@ const Services = () => {
   return (
     <Box component="section" id="fun-facts" sx={{ bgcolor: 'background.default', py: 8 }}>
       <Container maxWidth="xl">
-        <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={6}>
+        <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center" mb={4}>
           <Typography component="h2" variant="numberedHeading" color="text.secondary" gutterBottom>
             My Best Service
           </Typography>
@@ -47,7 +47,7 @@ const Services = () => {
         <Box maxWidth={1000} margin="0 auto">
           <Grid container spacing={2} justifyContent="stretch">
             {skills.map((item, index) => (
-              <Grid key={index} item xs={6} lg={4}>
+              <Grid key={index} item xs={12} lg={4}>
                 {/* eslint-disable-next-line no-return-assign */}
                 <ServiceCard ref={(el) => (revealCards.current[index] = el)} {...item} />
               </Grid>

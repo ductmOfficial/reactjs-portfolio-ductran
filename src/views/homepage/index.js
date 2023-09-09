@@ -27,8 +27,8 @@ const Homepage = () => {
       <Jobs jobs={jobs} />
       <Services />
       <FeaturedProjects projects={projects} />
-      <Projects projects={projects} />
       <Advertisement />
+      <Projects projects={projects} />
       <GetInTouch />
     </Box>
   );

@@ -28,13 +28,24 @@ const Advertisement = () => {
       }}
     >
       <Container maxWidth="xl">
-        <Box ref={revealTitle} maxWidth={720} margin="0 auto" textAlign="center">
-          <Typography component="h2" variant="h1" fontWeight="bold" gutterBottom>
-            I’m always available for Freelancer Work.
+        <Box ref={revealTitle} maxWidth={720} margin="0 auto">
+          <Typography component="h2" variant="numberedHeading" fontWeight="bold" align="center" gutterBottom>
+            I’m available for{' '}
+            <Typography
+              component="span"
+              sx={{
+                color: 'primary.dark',
+                fontWeight: 'inherit',
+                fontSize: 'inherit',
+              }}
+            >
+              Freelance
+            </Typography>
+            .
           </Typography>
-          <Typography variant="lead">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry.
+          <Typography variant="lead" component="p" align="center">
+            I work with you to understand your business and your goals, and then I create a website that is both visually appealing and
+            functionally effective.
           </Typography>
         </Box>
       </Container>
