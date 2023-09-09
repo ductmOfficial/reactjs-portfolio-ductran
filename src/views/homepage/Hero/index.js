@@ -10,9 +10,6 @@ import Typography from '@mui/material/Typography';
 // project imports
 import config from 'config';
 
-// assets
-import ImageBgLeaf from 'assets/images/bg-leaf.png';
-
 const Hero = ({ fullHeight = false }) => {
   const { userProfile: profile = {} } = config;
 
@@ -29,19 +26,14 @@ const Hero = ({ fullHeight = false }) => {
         <Box margin="0 auto">
           <Box
             sx={{
+              display: 'flex',
+              alignItems: 'center',
               ...(fullHeight && {
-                display: 'flex',
-                alignItems: 'center',
                 minHeight: { lg: 'calc(100vh - 180px)' },
               }),
-
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'bottom right',
-              backgroundImage: `url("${ImageBgLeaf}")`,
             }}
           >
-            <Box>
+            <Box flex={1}>
               <Typography
                 sx={{
                   fontFamily: 'monospace',
@@ -76,6 +68,7 @@ const Hero = ({ fullHeight = false }) => {
                 </Button>
               </Stack>
             </Box>
+            <Box sx={{ color: 'primary.main' }} />
           </Box>
         </Box>
       </Container>
