@@ -31,6 +31,12 @@ const Hero = ({ fullHeight = false }) => {
                 alignItems: 'center',
                 minHeight: { lg: 'calc(100vh - 180px)' },
               }),
+
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'bottom right',
+              backgroundImage:
+                'url("https://images.unsplash.com/photo-1587131766835-e5dfaf70ea20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=5080&q=80")',
             }}
           >
             <Box>
