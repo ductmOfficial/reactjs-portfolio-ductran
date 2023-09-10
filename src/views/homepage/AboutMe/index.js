@@ -31,7 +31,7 @@ const AboutMe = () => {
           <Grid container spacing={{ xs: 0, lg: 4 }}>
             <Grid item xs={12} lg={5}>
               <Box sx={{ display: 'flex', justifyContent: 'center', mb: { xs: 6, lg: 0 } }}>
-                <Pic maxWidth={{ xs: 280, sm: 'calc(100% - 50px)' }}>
+                <Pic maxWidth={{ xs: 280, sm: 500 }}>
                   <Box component="div" className="wrapper">
                     <img src={ImageAvatar} alt="Avatar" className="img" />
                   </Box>
