@@ -31,6 +31,7 @@ const Social = () => {
         color="text.secondary"
         variant="numberedHeading"
         sx={{
+          display: { xs: 'none', lg: 'block' },
           visibility: 'hidden',
         }}
       >
