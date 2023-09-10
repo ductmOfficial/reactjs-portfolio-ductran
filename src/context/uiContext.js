@@ -23,7 +23,7 @@ import NavigationScroll from 'layout/NavigationScroll';
 export const UIContext = createContext(null);
 
 export const UIProvider = ({ children }) => {
-  const [mode, setMode] = useLocalStorage(STORAGE__THEME_MODE, THEME__MODE.DARK);
+  const [mode, setMode] = useLocalStorage(STORAGE__THEME_MODE, THEME__MODE.LIGHT);
   const [openBackdrop, setOpenBackdrop] = useState(false);
 
   const [customization, setCustomization] = useState({
