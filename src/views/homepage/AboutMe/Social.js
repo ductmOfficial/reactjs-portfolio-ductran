@@ -37,7 +37,7 @@ const Social = () => {
         About me
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6} lg={12}>
           <Box>
             <Typography variant="h5" component="p">
               Phone
@@ -45,7 +45,7 @@ const Social = () => {
             <Typography color="text.secondary">{formatPhoneNumber(profile.phoneNumber)}</Typography>
           </Box>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6} lg={12}>
           <Box>
             <Typography variant="h5" component="p">
               Location
@@ -53,7 +53,7 @@ const Social = () => {
             <Typography color="text.secondary">{`${profile.address.city}, ${profile.address.country}`}</Typography>
           </Box>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6} lg={12}>
           <Box>
             <Typography variant="h5" component="p">
               Skype
@@ -61,7 +61,7 @@ const Social = () => {
             <Typography color="text.secondary">{profile.social.skype}</Typography>
           </Box>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6} lg={12}>
           <Box>
             <Typography variant="h5" component="p">
               Email
@@ -69,7 +69,7 @@ const Social = () => {
             <Typography color="text.secondary">{profile.email}</Typography>
           </Box>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6} lg={12}>
           <Box>
             <Typography variant="h5" gutterBottom>
               You can follow me also here
