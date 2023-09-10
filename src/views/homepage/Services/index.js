@@ -47,7 +47,7 @@ const Services = () => {
         <Box maxWidth={1000} margin="0 auto">
           <Grid container spacing={2} justifyContent="stretch">
             {skills.map((item, index) => (
-              <Grid key={index} item xs={6} sm={6} lg={4}>
+              <Grid key={index} item xs={12} sm={6} lg={4}>
                 {/* eslint-disable-next-line no-return-assign */}
                 <ServiceCard ref={(el) => (revealCards.current[index] = el)} {...item} />
               </Grid>
