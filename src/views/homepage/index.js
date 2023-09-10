@@ -21,11 +21,11 @@ const Homepage = () => {
   return (
     <Box component="article">
       <Hero />
-      <FunFacts />
       <AboutMe />
+      <FunFacts />
+      <Services />
       <Skills />
       <Jobs jobs={jobs} />
-      <Services />
       <FeaturedProjects projects={projects} />
       <Advertisement />
       <Projects projects={projects} />

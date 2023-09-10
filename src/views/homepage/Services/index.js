@@ -11,7 +11,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 // third-party
-import { IconBulb, IconDeviceImacCode, IconFlag3, IconLifebuoy, IconPalette, IconPencilPlus } from '@tabler/icons-react';
+import { IconBulb, IconDeviceImacCode, IconFlag3, IconGrain, IconLifebuoy, IconPalette, IconPencilPlus } from '@tabler/icons-react';
 
 // project imports
 import config from 'config';
@@ -87,6 +87,7 @@ const ServiceCard = forwardRef((props, ref) => {
         </Avatar>
         <Typography
           variant="h3"
+          gutterBottom
           sx={{
             color: 'primary.main',
             fontWeight: 'bold',
@@ -94,7 +95,11 @@ const ServiceCard = forwardRef((props, ref) => {
         >
           {item.title}
         </Typography>
-        <Typography color="text.secondary">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Typography>
+        <Box sx={{ textAlign: 'left', color: 'text.secondary' }}>
+          <IconGrain size="1.3rem" />
+          <IconGrain size="1.3rem" />
+          <IconGrain size="1.3rem" />
+        </Box>
       </CardContent>
     </Card>
   );

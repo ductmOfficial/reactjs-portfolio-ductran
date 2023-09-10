@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
 // project imports
 import config from 'config';
@@ -49,8 +50,15 @@ const AboutMe = () => {
                   is to always build products that provide pixel-perfect, performant experiences.
                 </Typography>
                 <Typography gutterBottom>
-                  Shortly after graduating from Sai Gon University, I joined the engineering team at IMAD Technology where I work on a wide
-                  variety of interesting and meaningful projects on a daily basis.
+                  Shortly after graduating from{' '}
+                  <Link href="https://www.sgu.edu.vn/" target="_blank" underline="none">
+                    Sai Gon University
+                  </Link>
+                  , I joined the engineering team at{' '}
+                  <Link href="https://imad.com.vn/" target="_blank" underline="none">
+                    IMAD Technology
+                  </Link>{' '}
+                  where I work on a wide variety of interesting and meaningful projects on a daily basis.
                 </Typography>
               </Box>
             </Grid>

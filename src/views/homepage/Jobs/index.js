@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { forwardRef, useEffect, useRef, useState } from 'react';
-import { Link as NavLink } from 'react-router-dom';
 
 // material-ui
 import TabContext from '@mui/lab/TabContext';
@@ -41,6 +40,8 @@ const Jobs = ({ jobs = [] }) => {
     sr.reveal(revealCards.current, srConfig());
   }, [srConfig]);
 
+  reverse(jobs);
+
   return (
     <Box component="section" id="jobs" sx={{ py: 8, bgcolor: 'background.paper' }}>
       <Container maxWidth="xl">
@@ -48,9 +49,6 @@ const Jobs = ({ jobs = [] }) => {
           <Typography component="h2" variant="numberedHeading" color="text.secondary">
             Where I’ve Worked
           </Typography>
-          <Link component={NavLink} align="center" underline="hover">
-            view the archive
-          </Link>
         </Box>
         <Box ref={revealCards} maxWidth={1000} margin="0 auto">
           <TabContext value={value}>
@@ -63,7 +61,7 @@ const Jobs = ({ jobs = [] }) => {
                 aria-label="lab API tabs example"
               >
                 {jobs &&
-                  reverse(jobs).map(({ node }, index) => {
+                  jobs.map(({ node }, index) => {
                     const { frontmatter } = node;
                     const { company } = frontmatter;
 
@@ -72,7 +70,7 @@ const Jobs = ({ jobs = [] }) => {
               </TabList>
             </Box>
             {jobs &&
-              reverse(jobs).map(({ node }, index) => {
+              jobs.map(({ node }, index) => {
                 const { frontmatter } = node;
                 const { company } = frontmatter;
 

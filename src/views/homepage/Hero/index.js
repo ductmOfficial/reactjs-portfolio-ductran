@@ -50,8 +50,8 @@ const Hero = ({ fullHeight = false }) => {
               </Typography>
               <Box maxWidth={600}>
                 <Typography variant="lead">
-                  I’m a software engineer based in Ho Chi Minh, VN specializing in building (and occasionally designing) exceptional
-                  websites, applications, and everything in between.
+                  I’m a software developer based in Ho Chi Minh City, Vietnam that specializes in developing (and occasionally designing)
+                  amazing websites, applications, and everything in between.
                 </Typography>
               </Box>
               <Stack direction="row" spacing={2} sx={{ mt: 4 }}>

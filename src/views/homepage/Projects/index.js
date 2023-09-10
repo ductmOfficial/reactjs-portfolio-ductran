@@ -100,17 +100,17 @@ const ProjectCard = forwardRef((props, ref) => {
     >
       <CardActions sx={{ pl: 1, alignItems: 'flex-start' }}>
         <Box component="div" color="primary.main">
-          <IconFolder stroke={1} size="5rem" />
+          <IconFolder stroke={1.5} size="5rem" />
         </Box>
         <Box flexGrow={1} />
         {frontmatter.github && (
           <IconButton href={frontmatter.github} target="_blank">
-            <IconGitBranch stroke={1} size="1.3rem" />
+            <IconGitBranch stroke={1.5} size="1.3rem" />
           </IconButton>
         )}
         {frontmatter.external && (
           <IconButton href={frontmatter.external} target="_blank">
-            <IconExternalLink stroke={1} size="1.3rem" />
+            <IconExternalLink stroke={1.5} size="1.3rem" />
           </IconButton>
         )}
       </CardActions>

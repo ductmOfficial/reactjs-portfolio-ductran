@@ -15,12 +15,17 @@ import dayjs from 'dayjs';
 // project imports
 import config from 'config';
 import sr from 'lib/sr';
+import numeral from 'numeral';
+
+const padNumeric = (number) => number.toString().padStart(2, '0');
+const yearsExperience = dayjs().diff(new Date('2016-01-01'), 'year');
+const quantityProject = dayjs().diff(new Date('2023-01-01'), 'month') / 3;
 
 const skills = [
-  { title: 'Projects Done', value: 79 },
-  { title: 'Happy Clients', value: 82 },
-  { title: 'Hours of Work', value: 890 },
-  { title: 'Years Experience', value: dayjs().diff(new Date('2016-01-01'), 'year') },
+  { title: 'Projects Done', value: numeral(36 + quantityProject).format() },
+  { title: 'Happy Clients', value: numeral(25 + quantityProject).format() },
+  { title: 'Hours of Work', value: numeral(yearsExperience * 12 * 22 * 8).format('0a') },
+  { title: 'Years Experience', value: padNumeric(yearsExperience) },
 ];
 
 const FunFacts = () => {
@@ -35,7 +40,7 @@ const FunFacts = () => {
     <Box component="section" id="fun-facts" sx={{ bgcolor: 'primary.light', py: { xs: 2, lg: 4 } }}>
       <Container maxWidth="xl">
         <Box maxWidth={1000} margin="0 auto">
-          <Grid container spacing={{ xs: 2, lg: 4 }} justifyContent="stretch">
+          <Grid container justifyContent="stretch" spacing={{ xs: 2, lg: 4 }}>
             {skills.map((item, index) => (
               <Grid key={index} item xs={6} lg={3}>
                 {/* eslint-disable-next-line no-return-assign */}
@@ -68,12 +73,13 @@ const SkillCard = forwardRef((props, ref) => {
         <Typography
           component="h3"
           sx={{
+            color: 'secondary.main',
             fontWeight: 'bold',
             fontFamily: 'monospace',
             fontSize: 'clamp(40px, 8vw, 60px)',
           }}
         >
-          {item.value.toString().padStart(2, '0').concat('+')}
+          {item.value}
         </Typography>
 
         <Typography
@@ -94,6 +100,6 @@ const SkillCard = forwardRef((props, ref) => {
 export default FunFacts;
 
 SkillCard.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   title: PropTypes.string,
 };

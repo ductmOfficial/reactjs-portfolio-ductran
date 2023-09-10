@@ -1,11 +1,4 @@
-import {
-  IconBrandCodepen,
-  IconBrandCodesandbox,
-  IconBrandGithub,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-} from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandInstagram, IconBrandLinkedin, IconBrandMeta, IconBrandTwitter } from '@tabler/icons-react';
 
 // project imports
 import * as routes from 'constants/routes';
@@ -42,6 +35,11 @@ const config = {
   },
   socialMedia: [
     {
+      name: 'facebook',
+      icon: IconBrandMeta,
+      url: 'https://www.facebook.com/minhduc.tran.sgu',
+    },
+    {
       name: 'github',
       icon: IconBrandGithub,
       url: 'https://github.com/ductmOfficial',
@@ -60,16 +58,6 @@ const config = {
       name: 'twitter',
       icon: IconBrandTwitter,
       url: 'https://twitter.com/ductmOfficial',
-    },
-    {
-      name: 'codepen',
-      icon: IconBrandCodepen,
-      url: 'https://codepen.io/ductmofficial',
-    },
-    {
-      name: 'dharmachakra',
-      icon: IconBrandCodesandbox,
-      url: 'https://www.codewars.com/users/ductm_official',
     },
   ],
   srConfig: (delay = 200, viewFactor = 0.25) => ({

@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 // third-party
-import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconBrandSkype } from '@tabler/icons-react';
+import { IconBrandFacebook } from '@tabler/icons-react';
 
 // project imports
 import config from 'config';
@@ -17,7 +17,7 @@ import { formatPhoneNumber } from 'utils/number';
 
 const Social = () => {
   const revealContainer = useRef(null);
-  const { userProfile: profile = {}, srConfig } = config;
+  const { userProfile: profile = {}, srConfig, socialMedia } = config;
 
   useEffect(() => {
     sr.reveal(revealContainer.current, srConfig());
@@ -72,67 +72,47 @@ const Social = () => {
         <Grid item xs={12}>
           <Box>
             <Typography variant="h5" gutterBottom>
-              You can follow me also here:
+              You can follow me also here
             </Typography>
-            <Stack direction="row" spacing={1}>
+            <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap' }}>
+              {socialMedia &&
+                socialMedia.map(({ url, name, icon }) => {
+                  const Icon = icon;
+                  return (
+                    <Box key={`${url}`}>
+                      <IconButton
+                        size="small"
+                        href={url}
+                        target="_blank"
+                        aria-label={name}
+                        sx={{
+                          color: 'common.white',
+                          bgcolor: 'secondary.main',
+                          '&:hover': {
+                            color: 'secondary.main',
+                          },
+                        }}
+                      >
+                        <Icon stroke={1.5} size="1.3rem" />
+                      </IconButton>
+                    </Box>
+                  );
+                })}
+            </Stack>
+            <Stack direction="row" spacing={1} sx={{ display: 'none' }}>
               <IconButton
-                size="small"
                 color="inherit"
                 target="_blank"
                 href={profile.social.facebook}
                 sx={{
                   color: 'common.white',
-                  bgcolor: 'primary.light',
+                  bgcolor: 'secondary.main',
                   '&:hover': {
-                    color: 'primary.light',
+                    color: 'secondary.main',
                   },
                 }}
               >
                 <IconBrandFacebook stroke={1.5} size="1.5rem" />
-              </IconButton>
-              <IconButton
-                size="small"
-                color="inherit"
-                target="_blank"
-                href={profile.social.linkedin}
-                sx={{
-                  color: 'common.white',
-                  bgcolor: 'primary.light',
-                  '&:hover': {
-                    color: 'primary.light',
-                  },
-                }}
-              >
-                <IconBrandLinkedin stroke={1.5} size="1.5rem" />
-              </IconButton>
-              <IconButton
-                size="small"
-                color="inherit"
-                target="_blank"
-                href={profile.social.instagram}
-                sx={{
-                  color: 'common.white',
-                  bgcolor: 'primary.light',
-                  '&:hover': {
-                    color: 'primary.light',
-                  },
-                }}
-              >
-                <IconBrandInstagram stroke={1.5} size="1.5rem" />
-              </IconButton>
-              <IconButton
-                size="small"
-                color="inherit"
-                href={`skype:${profile.social.skype}?chat`}
-                sx={{
-                  color: 'common.white',
-                  bgcolor: 'primary.light',
-                  '&:hover': {
-                    color: 'primary.light',
-                  },
-                }}
-              >
-                <IconBrandSkype stroke={1.5} size="1.5rem" />
               </IconButton>
             </Stack>
           </Box>
