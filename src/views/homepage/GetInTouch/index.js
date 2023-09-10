@@ -19,9 +19,9 @@ const GetInTouch = () => {
   }, [srConfig]);
 
   return (
-    <Box ref={revealContainer} component="section" id="get-in-touch" sx={{ bgcolor: 'background.paper', py: 8 }}>
+    <Box component="section" id="get-in-touch" sx={{ bgcolor: 'background.paper', py: 8 }}>
       <Container maxWidth="xl">
-        <Box maxWidth={600} margin="0 auto" textAlign="center">
+        <Box ref={revealContainer} maxWidth={600} margin="0 auto" textAlign="center">
           <Typography variant="numberedHeading" component="h2" gutterBottom color="text.secondary">
             Get In Touch
           </Typography>
